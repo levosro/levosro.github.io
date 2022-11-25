@@ -159,12 +159,9 @@ body>main A:active {
 /* } */
 
 
-.engels,
-.engelsy,
-.marx,
-.marxy,
-.marxo,
-.marxengels,
+.lenin1,
+.lenin2,
+.lenin2,
 .levos,
 .tucker {
   pointer-events: none;
@@ -551,38 +548,20 @@ SUB {
 /* =====================================*/
 
 @media (max-width: 480px) {
-  img.engels {
-    width: 51px;
+  img.lenin1 {
+    width: 62px;
     height: auto;
     text-align: center;
   }
 
-  img.marx {
-    width: 78px;
+  img.lenin2 {
+    width: 52px;
     height: auto;
     text-align: center;
   }
 
-  img.engelsy {
-    width: 60px;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxy {
+  img.lenin3 {
     width: 65px;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxengels {
-    width: 86px;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxo {
-    width: 64px;
     height: auto;
     text-align: center;
   }
@@ -761,38 +740,20 @@ SUB {
 }
 
 @media screen and (min-device-width: 480px) and (max-device-width: 1280px) {
-  img.engels {
-    width: 7.6%;
+  img.lenin1 {
+    width: 9.3%;
     height: auto;
     text-align: center;
   }
 
-  img.marx {
-    width: 11.7%;
+  img.lenin2 {
+    width: 7.8%;
     height: auto;
     text-align: center;
   }
 
-  img.engelsy {
-    width: 8.9%;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxy {
+  img.lenin3 {
     width: 9.7%;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxengels {
-    width: 12.8%;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxo {
-    width: 9.5%;
     height: auto;
     text-align: center;
   }
