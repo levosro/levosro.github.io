@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", function () {
   // }, 5000);
   let x = location.search.split('id=')[1];
   if (x != undefined) {
-    document.querySelector('header').innerHTML='<form id="form1" action="javascript:"></form>'
+    document.querySelector('header').innerHTML = '<form id="form1" action="javascript:"></form>'
     const container = document.getElementById('container');
     container.innerHTML = `<div class="review"> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`
 
@@ -163,7 +163,9 @@ window.addEventListener("DOMContentLoaded", function () {
     // container.setAttribute('display', 'none');
     let res = ''
     res = res + '<div id="searchTOC">';
+    res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button></center> <div></div>';
     res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
+    
 
     for (let p = 0; p < texts.length; p++) {
       let text = texts[p];
@@ -198,7 +200,11 @@ window.addEventListener("DOMContentLoaded", function () {
     let TOC = document.getElementById('TOC');
     TOC.innerHTML = res;
     const search = document.getElementById("searchTOC");
+    const home = document.getElementById('home');
 
+    home.addEventListener('click', function () {
+      window.location.href = '../index.html'
+    })
     let textList = search.getElementsByTagName("tr");
     for (let i = 1; i < textList.length; i++) {
       textList[i].style.display = "none";

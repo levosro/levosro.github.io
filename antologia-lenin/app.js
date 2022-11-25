@@ -182,8 +182,9 @@ window.addEventListener("DOMContentLoaded", function () {
     // container.setAttribute('display', 'none');
     let res = ''
     res = res + '<div id="searchTOC">';
+    res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button></center> <div></div>';
     res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
-
+    
     for (let p = 0; p < texts.length; p++) {
       let text = texts[p];
 
@@ -236,7 +237,11 @@ window.addEventListener("DOMContentLoaded", function () {
     let TOC = document.getElementById('TOC');
     TOC.innerHTML = res;
     const search = document.getElementById("searchTOC");
+    const home = document.getElementById('home');
 
+    home.addEventListener('click', function () {
+      window.location.href = '../index.html'
+    })
     let textList = search.getElementsByTagName("tr");
     for (let i = 1; i < textList.length; i++) {
       textList[i].style.display = "none";
