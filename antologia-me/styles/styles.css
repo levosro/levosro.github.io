@@ -92,6 +92,11 @@ body>main {
   max-width: 900px;
 }
 
+#modal-body {
+  max-width: 900px;
+  align-content: center;
+}
+
 ul {
   list-style-type: none;
 }

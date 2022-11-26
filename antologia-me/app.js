@@ -446,7 +446,6 @@ function Search2(inputX, searchX, textInputX, startI, tocX) {
               const div = document.getElementById(`chr${text.idChr}`);
               div.innerHTML = res;
             } else {
-
               let citat = citate.filter(element => element.id == parseInt(a.substring(3)))[0];
               const div = document.getElementById(`cit${citat.id}`);
               div.innerHTML = res;
