@@ -20,7 +20,7 @@ export const chapters = [
 {'author': '[]',
 'title': 'Dezvoltarea capitalismului în Rusia',
 'subtitle': 'Procesul formării pieţei interne pentru marea industrie',
-'description': ['<p>TODO\r\n</p>'],
+'description': ['<p>„Dezvoltarea capitalismului în Rusia“, primul studiu economic realizat de Lenin, relevă multe din atitudinile sale în legătură cu revoluţia burghezo-democratică din scrierile sale ulterioare. Selecţia prezentată aici, care nu este prezentă în ediţia originală a antologiei, provine din ediţia editată de Henry M. Christman a cărţii „Lucrări esenţiale ale lui Lenin“, şi cuprinde concluziile principale ale acestei cărţi, o polemică împotriva înţelegerii economice prezentate de narodnicismul rus al erei lui Lenin.\r\n</p>'],
 'idCh': '1.02',
 },
 {'author': '[]',
