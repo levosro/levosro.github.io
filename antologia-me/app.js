@@ -196,7 +196,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     for (let p = 0; p < citate.length; p++) {
       let citat = citate[p];
-      res = res + `<tr><td><span style="text-align: center;"><div><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
+      res = res + `<tr><td><span style="text-align: center;"><div><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
     }
     res = res + '</tbody></table></div>'
 
