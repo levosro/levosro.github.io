@@ -165,7 +165,7 @@ window.addEventListener("DOMContentLoaded", function () {
     res = res + '<div id="searchTOC">';
     res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button></center> <div></div>';
     res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
-    
+
 
     for (let p = 0; p < texts.length; p++) {
       let text = texts[p];
@@ -305,13 +305,8 @@ function Search2(inputX, searchX, textInputX, startI, tocX) {
           notesList.push(notes[item - 1])
         })
         notesList.forEach(function (note) {
-          content = content + ` ${note.content.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/<[^>]*>/g, '')}`;
+          content = content + ` ${note.content.join('').normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/<[^>]*>/g, '')}`;
         })
-      }
-      else {
-        let x = parseInt(a.substring(3))
-        let citat = citate.filter(item => item.id == x)[0]
-        content = content + citat.text.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/<[^>]*>/g, '');
       }
       if (filter != '') {
         if (content.toUpperCase().indexOf(filter) > -1) {
@@ -324,27 +319,18 @@ function Search2(inputX, searchX, textInputX, startI, tocX) {
             if (j > 20) { res = '<i>„...' + content.substring(j - 20, j) + `<b><u>${content.substring(j, j + filter.length)}</b></u>` + content.substring(j + filter.length, j + filter.length + 20) + '...“</i>'; }
             else if (j == 0) { res = '<i>„' + `<b><u>${content.substring(j, j + filter.length)}</b></u>` + content.substring(j + filter.length, j + filter.length + 25) + '...“</i>'; }
             else { res = '<i>„' + content.substring(0, j) + `<b><u>${content.substring(j, j + filter.length)}</b></u>` + content.substring(j + filter.length, j + filter.length + 20) + '...“</i>'; }
-            if (a.includes('CHR')) {
-              let text = texts.filter(element => element.idChr == a.substring(3))[0];
-              const div = document.getElementById(`chr${text.idChr}`);
-              div.innerHTML = res;
-            } else {
 
-              let citat = citate.filter(element => element.id == parseInt(a.substring(3)))[0];
-              const div = document.getElementById(`cit${citat.id}`);
-              div.innerHTML = res;
-            }
+            let text = texts.filter(element => element.idChr == a.substring(3))[0];
+            const div = document.getElementById(`chr${text.idChr}`);
+            div.innerHTML = res;
+
           }
           else {
-            if (a.includes('CHR')) {
-              let text = texts.filter(element => element.idChr == a.substring(3))[0];
-              const div = document.getElementById(`chr${text.idChr}`);
-              div.innerHTML = '';
-            } else {
-              let citat = citate.filter(element => element.id == parseInt(a.substring(3)))[0];
-              const div = document.getElementById(`cit${citat.id}`);
-              div.innerHTML = '';
-            }
+
+            let text = texts.filter(element => element.idChr == a.substring(3))[0];
+            const div = document.getElementById(`chr${text.idChr}`);
+            div.innerHTML = '';
+
           }
         } else {
           textList[i].style.display = "none";

@@ -166,21 +166,21 @@ function Search2() {
               const div = document.getElementById(`cit${citat.id}`);
               div.innerHTML = res;
             }
+          }
 
+        } else {
+          textList[i].style.display = "none";
+          const aX = textList[i].getElementsByTagName("a")[0]
+          let a = aX.getAttribute("id");
+          if (a.includes('CHR')) {
+            let text = texts.filter(element => element.idChr == a.substring(3))[0];
+            const div = document.getElementById(`chr${text.idChr}`);
+            div.innerHTML = '';
+            div.innerHTML = '';
           } else {
-            textList[i].style.display = "none";
-            const aX = textList[i].getElementsByTagName("a")[0]
-            let a = aX.getAttribute("id");
-            if (a.includes('CHR')) {
-              let text = texts.filter(element => element.idChr == a.substring(3))[0];
-              const div = document.getElementById(`chr${text.idChr}`);
-              div.innerHTML = '';
-              div.innerHTML = '';
-            } else {
-              let citat = citate.filter(element => element.id == parseInt(a.substring(3)))[0];
-              const div = document.getElementById(`cit${citat.id}`);
-              div.innerHTML = '';
-            }
+            let citat = citate.filter(element => element.id == parseInt(a.substring(3)))[0];
+            const div = document.getElementById(`cit${citat.id}`);
+            div.innerHTML = '';
           }
         }
       }
@@ -212,7 +212,7 @@ function generateTOC() {
   }
   for (let p = 0; p < citate.length; p++) {
     let citat = citate[p];
-    res = res + `<menuitem> <span><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.titlu}</a><hr style="width:30%;"/><div id="cit${citat.id}"></div></span> </menuitem>`;
+    res = res + `<menuitem> <span><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a><hr style="width:30%;"/><div id="cit${citat.id}"></div></span> </menuitem>`;
   }
   res = res + '</div>'
 
