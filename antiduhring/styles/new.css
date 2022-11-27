@@ -159,12 +159,9 @@ body>main A:active {
 /* } */
 
 
-.engels,
-.engelsy,
-.marx,
-.marxy,
-.marxo,
-.marxengels,
+.lenin1,
+.lenin2,
+.lenin2,
 .levos,
 .tucker {
   pointer-events: none;
@@ -226,6 +223,16 @@ DIV.citate {
   MARGIN-RIGHT: 5%;
   FONT-FAMILY: "font.otf", sans-serif;
   TEXT-ALIGN: right
+}
+
+P.right2 {
+  FONT-SIZE: 12pt;
+  MARGIN-LEFT: 40%;
+  TEXT-INDENT: 1em;
+  LINE-HEIGHT: 130%;
+  MARGIN-RIGHT: 10%;
+  FONT-FAMILY: "font.otf", serif;
+  TEXT-ALIGN: justify
 }
 
 H1 {
@@ -330,6 +337,43 @@ SPAN.russian {
 
 DIV {
   font-family: "font.otf";
+}
+
+#bookContent ol {
+  FONT-SIZE: 12pt;
+  MARGIN-LEFT: 5%;
+  line-height: 130%;
+  MARGIN-RIGHT: 5%;
+  FONT-FAMILY: "font.otf", serif;
+  TEXT-ALIGN: justify;
+}
+
+table {
+  FONT-SIZE: 12pt;
+  MARGIN-LEFT: 5%;
+  line-height: 130%;
+  MARGIN-RIGHT: 5%;
+  FONT-FAMILY: "font.otf", serif;
+  TEXT-ALIGN: justify;
+}
+
+UL.disc {
+  FONT-SIZE: 12pt;
+  MARGIN-LEFT: 7%;
+  LINE-HEIGHT: 130%;
+  MARGIN-RIGHT: 14%;
+  FONT-FAMILY: "font.otf", serif;
+  LIST-STYLE-TYPE: disc;
+  TEXT-ALIGN: left
+}
+
+OL.numbered {
+  FONT-SIZE: 12pt;
+  MARGIN-LEFT: 7%;
+  LINE-HEIGHT: 130%;
+  MARGIN-RIGHT: 14%;
+  FONT-FAMILY: "font.otf", serif;
+  TEXT-ALIGN: left
 }
 
 /* .info {
@@ -504,38 +548,20 @@ SUB {
 /* =====================================*/
 
 @media (max-width: 480px) {
-  img.engels {
-    width: 51px;
+  img.lenin1 {
+    width: 62px;
     height: auto;
     text-align: center;
   }
 
-  img.marx {
-    width: 78px;
+  img.lenin2 {
+    width: 52px;
     height: auto;
     text-align: center;
   }
 
-  img.engelsy {
-    width: 60px;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxy {
+  img.lenin3 {
     width: 65px;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxengels {
-    width: 86px;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxo {
-    width: 64px;
     height: auto;
     text-align: center;
   }
@@ -558,6 +584,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -714,38 +746,20 @@ SUB {
 }
 
 @media screen and (min-device-width: 480px) and (max-device-width: 1280px) {
-  img.engels {
-    width: 7.6%;
+  img.lenin1 {
+    width: 9.3%;
     height: auto;
     text-align: center;
   }
 
-  img.marx {
-    width: 11.7%;
+  img.lenin2 {
+    width: 7.8%;
     height: auto;
     text-align: center;
   }
 
-  img.engelsy {
-    width: 8.9%;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxy {
+  img.lenin3 {
     width: 9.7%;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxengels {
-    width: 12.8%;
-    height: auto;
-    text-align: center;
-  }
-
-  img.marxo {
-    width: 9.5%;
     height: auto;
     text-align: center;
   }
@@ -772,6 +786,14 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -926,6 +948,13 @@ SUB {
     font-family: "font.otf";
   }
 
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -1071,6 +1100,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -1221,6 +1256,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -1368,6 +1409,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -1511,6 +1558,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -1659,6 +1712,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -1855,6 +1914,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -2066,6 +2131,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -2271,11 +2342,17 @@ SUB {
   }
 
   p {
-    font-size: 11pt;
+    font-size: 12pt;
     margin-left: 1.5%;
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -2489,6 +2566,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -2696,6 +2779,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -2908,6 +2997,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -3125,6 +3220,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -3331,6 +3432,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -3546,6 +3653,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -3756,6 +3869,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -3962,6 +4081,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -4176,6 +4301,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -4386,6 +4517,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -4592,6 +4729,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -4806,6 +4949,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -4969,6 +5118,12 @@ SUB {
     TEXT-ALIGN: justify;
     margin-top: 0em;
     margin-bottom: 0em;
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   P.noind {

@@ -339,7 +339,7 @@ DIV {
   font-family: "font.otf";
 }
 
-ol {
+#bookContent ol {
   FONT-SIZE: 12pt;
   MARGIN-LEFT: 5%;
   line-height: 130%;
@@ -586,6 +586,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 11pt;
     font-size: 80%;
@@ -782,6 +788,14 @@ SUB {
     font-family: "font.otf";
   }
 
+
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -934,6 +948,13 @@ SUB {
     font-family: "font.otf";
   }
 
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -1079,6 +1100,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -1229,6 +1256,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -1376,6 +1409,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -1519,6 +1558,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -1667,6 +1712,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -1863,6 +1914,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -2074,6 +2131,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -2279,11 +2342,17 @@ SUB {
   }
 
   p {
-    font-size: 11pt;
+    font-size: 12pt;
     margin-left: 1.5%;
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -2497,6 +2566,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -2704,6 +2779,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -2916,6 +2997,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -3133,6 +3220,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -3339,6 +3432,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -3554,6 +3653,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -3764,6 +3869,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -3970,6 +4081,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -4184,6 +4301,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -4394,6 +4517,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -4600,6 +4729,12 @@ SUB {
     margin-right: 1.5%;
     text-align: justify;
     font-family: "font.otf";
+  }
+
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 
   div.citate {
@@ -4814,6 +4949,12 @@ SUB {
     font-family: "font.otf";
   }
 
+  #bookContent ol {
+    font-size: 11pt;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+  }
+
   div.citate {
     font-size: 12pt;
     font-size: 80%;
@@ -4977,6 +5118,12 @@ SUB {
     TEXT-ALIGN: justify;
     margin-top: 0em;
     margin-bottom: 0em;
+  }
+
+  #bookContent ol {
+    font-size: 12pt;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   P.noind {

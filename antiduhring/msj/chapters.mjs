@@ -74,4 +74,7 @@ export const chapters = [
 {'title': 'VIII. Capital şi plusvaloare (Sfârşit)',
 'idCh': '2.08',
 },
+{'title': 'IX. Legi naturale ale economiei. Renta funciară',
+'idCh': '2.9_Legi_naturale_ale_economiei._Renta_funciara',
+},
 ];
