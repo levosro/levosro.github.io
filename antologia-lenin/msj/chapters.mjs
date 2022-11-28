@@ -45,7 +45,7 @@ export const chapters = [
 'title': 'Despre dreptul naţiunilor la autodeterminare',
 'subtitle': '',
 'description': ['<p>Imperiul Rus era un stat multinaţional cu o populaţie totală de aproximativ 170.000.000 de locuitori, dintre care cei de naţionalitate rusă erau ceva mai puţin de 75.000.000. Teritoriile periferice erau puternic populate de slavi de altă etnie decât cea rusă (polonezi, ucraineni şi bieloruşi) şi de alte popoare decât slavi (estonieni, letoni, lituanieni, finlandezi, evrei, georgieni, armeni şi popoare turceşti din Asia Centrală rusă, cunoscută pe atunci sub numele de Turkestan). Având în vedere aceste circumstanţe, un partid revoluţionar trebuia să îşi definească tactica în raport nu numai cu clasele, ci şi cu naţionalităţile. În acest tratat, scris în prima jumătate a anului 1914, Lenin a susţinut o tactică de promovare a dezintegrării revoluţionare a imperiilor precum cel rusesc şi austro-ungar prin susţinerea de către partid a dreptului naţiunilor minoritare la autodeterminare, adică la secesiune şi la formarea de state-naţiuni independente. În cele din urmă, dezintegrarea Imperiului Rus în urma Războiului Mondial a fost ţinută în frâu de partidul lui Lenin. Deşi Finlanda, Polonia şi ţările baltice s-au separat, regimul lui Lenin, al cărui comisar pentru probleme de naţionalitate era Stalin, a reuşit să păstreze cea mai mare parte a fostului imperiu pentru noul stat sovietic multinaţional, în parte prin suprimarea prin forţă a separatismului naţional în Ucraina, Georgia, Armenia şi în alte părţi.\r\n</p>'],
-'idCh': '1.07',
+'idCh': '1.08',
 },
 {'author': '[]',
 'title': 'Socialismul şi războiul',
