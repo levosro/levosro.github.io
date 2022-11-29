@@ -75,6 +75,6 @@ export const chapters = [
 'idCh': '2.08',
 },
 {'title': 'IX. Legi naturale ale economiei. Renta funciară',
-'idCh': '2.9_Legi_naturale_ale_economiei._Renta_funciara',
+'idCh': '2.09',
 },
 ];
