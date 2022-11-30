@@ -79,6 +79,11 @@ html {
   scroll-behavior: smooth;
 }
 
+
+.modal-body {
+  margin: 1em;
+}
+
 body>main {
   font-family: var(--ff-secondary);
   /* background: var(--clr-grey-10); */

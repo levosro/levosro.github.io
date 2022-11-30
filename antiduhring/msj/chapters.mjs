@@ -77,4 +77,7 @@ export const chapters = [
 {'title': 'IX. Legi naturale ale economiei. Renta funciară',
 'idCh': '2.09',
 },
+{'title': 'X. Din „Kritische Geschichte“',
+'idCh': '2.10',
+},
 ];
