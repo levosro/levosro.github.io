@@ -526,6 +526,7 @@ function addFunct(btnList) {
             let utterThis = new SpeechSynthesisUtterance();
             utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
             utterThis.text = ourText;
+            synth.speak(utterThis)
             for (let i = 0; i < text.content.length; i++) {
               let ourText = text.content[i].replace(/<[^>]*>/g, '');
               let utterThis = new SpeechSynthesisUtterance();

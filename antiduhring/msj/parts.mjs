@@ -11,4 +11,7 @@ export const parts = [
 {'title': 'Secţiunea a doua. Economie politică',
 'idPt': '2',
 },
+{'title': 'Secțiunea a treia. Socialismul',
+'idPt': '3',
+},
 ];

@@ -80,4 +80,7 @@ export const chapters = [
 {'title': 'X. Din „Kritische Geschichte“',
 'idCh': '2.10',
 },
+{'title': 'I. Noţiuni istorice',
+'idCh': '3.01',
+},
 ];
