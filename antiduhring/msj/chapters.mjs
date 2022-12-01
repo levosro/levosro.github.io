@@ -83,4 +83,10 @@ export const chapters = [
 {'title': 'I. Noţiuni istorice',
 'idCh': '3.01',
 },
+{'title': 'II. Noţiuni teoretice',
+'idCh': '3.02',
+},
+{'title': 'III. Producţia',
+'idCh': '3.03',
+},
 ];
