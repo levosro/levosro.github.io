@@ -89,4 +89,7 @@ export const chapters = [
 {'title': 'III. Producţia',
 'idCh': '3.03',
 },
+{'title': 'IV. Repartiţia',
+'idCh': '3.04',
+},
 ];
