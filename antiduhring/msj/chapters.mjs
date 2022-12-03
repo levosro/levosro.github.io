@@ -92,4 +92,7 @@ export const chapters = [
 {'title': 'IV. Repartiţia',
 'idCh': '3.04',
 },
+{'title': 'V. Stat, familie, educaţie',
+'idCh': '3.5_Stat__familie__educaţie',
+},
 ];
