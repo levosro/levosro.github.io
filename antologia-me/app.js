@@ -45,7 +45,7 @@ let currentItem = 2;
 
 window.addEventListener("DOMContentLoaded", function () {
   // setTimeout(() => {
-  //   console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro'))[0]);
+  console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro'))[0]);
   // }, 5000);
   let x = location.search.split('id=')[1];
   if (x != undefined) {
