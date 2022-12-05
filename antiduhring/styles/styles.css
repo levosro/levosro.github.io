@@ -92,6 +92,10 @@ ul {
   list-style-type: none;
 }
 
+/* #TOC ul {
+  list-style-type: "★ ";
+} */
+
 a {
   text-decoration: none;
 }

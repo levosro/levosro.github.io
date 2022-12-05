@@ -208,6 +208,10 @@ body>main {
   place-items: center;
 }
 
+#TOC ul {
+  list-style-type: "★ ";
+}
+
 .dt {
   background: #b8c1c8;
   border-bottom: 1px solid black;
