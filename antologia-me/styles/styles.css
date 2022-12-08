@@ -265,6 +265,7 @@ Reviews
 
 .img-container {
   position: relative;
+  display: block;
   width: 150px;
   height: 150px;
   border-radius: 50%;
