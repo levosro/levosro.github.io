@@ -43,9 +43,20 @@ let chTexts = [];
 let btnList = [];
 let currentItem = 2;
 
+document.addEventListener('copy', (event) => {
+  if (event == null) {
+    return;
+  }
+  let selection = document.getSelection();
+  if (selection.toString() != '') {
+    event.clipboardData.setData('text/plain', `${selection.toString()}\n\n${window.location.href}`);
+    event.preventDefault();
+  }
+})
+
 window.addEventListener("DOMContentLoaded", function () {
   // setTimeout(() => {
-  console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro'))[0]);
+  // console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro'))[0]);
   // }, 5000);
   let x = location.search.split('id=')[1];
   if (x != undefined) {
@@ -216,7 +227,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 window.onclick = function (event) {
   if (event.target == modal) {
-    console.log(modal)
+    // console.log(modal)
     modal.style.display = "none";
 
   }
