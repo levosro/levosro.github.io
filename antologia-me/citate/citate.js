@@ -80,6 +80,7 @@ window.addEventListener("DOMContentLoaded", function () {
       node.removeChild(n2)
       node.removeChild(n3)
       node.removeChild(n4)
+      if (node.querySelector('a') != null) { node.querySelector('a').style.textDecoration = 'none' }
       html2canvas(node1, innerWidth = 500).then(async function (canvas) {
         let xhr = new XMLHttpRequest();
         xhr.responseType = 'blob';
