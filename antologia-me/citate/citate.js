@@ -123,7 +123,7 @@ function changePerson(person) {
 
   const item = citate[person];
   img.innerHTML = `<img src="./citate/profiles/${item.img}.svg" id="person-img" alt="" > </img>`;
-  console.log(img.innerHTML)
+  // console.log(img.innerHTML)
   author.innerHTML = item.autor;
   titlu.innerHTML = item.titlu;
   info.innerHTML = item.text;
