@@ -3,7 +3,7 @@ import { chapters } from '../msj/chapters.mjs';
 import { texts } from '../msj/texts.mjs';
 import { parts } from '../msj/parts.mjs';
 import { notes } from '../msj/notes.mjs'
-// import { notes } from '../msj/notes.mjs';
+import html2canvas from './html2canvas.esm.js';
 const section = document.querySelector('.container');
 
 
@@ -14,12 +14,13 @@ window.addEventListener("DOMContentLoaded", function () {
   let x = location.search.split('cit=')[1];
   if (x != undefined) {
 
-    section.innerHTML = `<div class="title"> <h2>Citate din scrierile lui Marx și Engels</h2> <div class="underline"> </div> </div> <div class="review"> <div class="img-container"> </div> <h4 id="author"></h4> <p id="titlu"></p> <p id="an"></p> <p id="info"></p> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="antologia">Antologia Marx-Engels</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`;
+    section.innerHTML = `<div class="title"> <h2>Citate din scrierile lui Marx și Engels</h2> <div class="underline"> </div> </div> <div class="review"> <div class="img-container"> </div> <h4 id="author"></h4> <p id="titlu"></p> <p id="an"></p> <p id="info"></p> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="save"> <i class="fas fa-save"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="antologia">Antologia Marx-Engels</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`;
 
     const antologia = document.getElementById('antologia');
 
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    const saveBtn = document.querySelector('.save');
     const randomBtn = document.querySelector('.random-btn');
     const home = document.getElementById('home');
 
@@ -65,6 +66,39 @@ window.addEventListener("DOMContentLoaded", function () {
       window.location.href = `./citate.html?cit=${citat.id}`;
     });
 
+    saveBtn.addEventListener('click', function () {
+      let res = document.querySelector("section.container").innerHTML;
+      document.getElementById('save-zone').innerHTML = res;
+      let node1 = document.getElementById('save-zone')
+      node1.removeChild(node1.querySelector('div.title'))
+      let node = node1.querySelector('div.review')
+      let n1 = node.querySelector('div.button-container')
+      let n2 = node.querySelector('button.random-btn')
+      let n3 = node.querySelector('#antologia')
+      let n4 = node.querySelector('#home')
+      node.removeChild(n1)
+      node.removeChild(n2)
+      node.removeChild(n3)
+      node.removeChild(n4)
+      html2canvas(node1, innerWidth = 500).then(async function (canvas) {
+        let xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob';
+        xhr.onload = function () {
+          let a = document.createElement('a');
+          a.href = window.URL.createObjectURL(xhr.response);
+          a.download = 'MEcit' + window.location.href.split('cit=')[1] + '.png';
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        };
+        xhr.open('GET', canvas.toDataURL('image/png')); // This is to download the canvas Image
+        xhr.send();
+
+      });
+      node1.innerHTML = '';
+    })
+
     randomBtn.addEventListener('click', function () {
       let x = currentItem;
       while (currentItem == x) { currentItem = Math.floor(Math.random() * citate.length); }
@@ -88,7 +122,8 @@ function changePerson(person) {
   const an = document.getElementById('an');
 
   const item = citate[person];
-  img.innerHTML = "<img src=\"./citate/profiles/" + item.img + ".svg\" id=\"person-img\" alt=\"\">";
+  img.innerHTML = `<img src="./citate/profiles/${item.img}.svg" id="person-img" alt="" > </img>`;
+  console.log(img.innerHTML)
   author.innerHTML = item.autor;
   titlu.innerHTML = item.titlu;
   info.innerHTML = item.text;

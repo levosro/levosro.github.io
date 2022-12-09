@@ -241,7 +241,7 @@ body>main {
 }
 
 
-body>main p#titlu> A:link {
+body>main p#titlu>A:link {
   COLOR: #c41616;
   text-decoration: underline;
 }
@@ -381,7 +381,8 @@ body>main blockquote {
 }
 
 .prev-btn,
-.next-btn {
+.next-btn,
+.save {
   color: #c41616;
   font-size: 1.25rem;
   background: transparent;
@@ -392,7 +393,8 @@ body>main blockquote {
 }
 
 .prev-btn:hover,
-.next-btn:hover {
+.next-btn:hover,
+.save:hover {
   color: #970000;
 }
 
