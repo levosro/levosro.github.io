@@ -25,12 +25,11 @@ function highlight(element) {
   element.style.transition = "background 1s";
   element.style.backgroundColor = "#c41616";
 
-  setTimeout(function()
-  {
-      element.style.backgroundColor = defaultBG;
-      setTimeout(function() {
-          element.style.transition = defaultTransition;
-      }, 1000);
+  setTimeout(function () {
+    element.style.backgroundColor = defaultBG;
+    setTimeout(function () {
+      element.style.transition = defaultTransition;
+    }, 1000);
   }, 1000);
 }
 
@@ -708,7 +707,7 @@ function addFunct(btnList) {
         }
         const noteZone = document.getElementById(`notes${text.idChr}`);
         noteZone.innerHTML = res;
-        console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro')).length)
+        // console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro')).length)
         if (synth.getVoices().filter(item => item.lang.includes('ro')).length > 0) {
           document.getElementById(`synthZone${text.idChr}`).innerHTML = `<button class="expand-btn" id="play${text.idChr}"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop${text.idChr}"><i class="fa fa-stop"></i></button>`
           const readText = document.getElementById(`play${text.idChr}`);

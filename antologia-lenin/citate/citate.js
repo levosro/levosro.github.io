@@ -10,6 +10,17 @@ const section = document.querySelector('.container');
 
 let currentItem = Math.floor(Math.random() * citate.length);
 
+document.addEventListener('copy', (event) => {
+  if (event == null) {
+    return;
+  }
+  let selection = document.getSelection();
+  if (selection.toString() != '') {
+    event.clipboardData.setData('text/plain', `${selection.toString()}\n\n${window.location.href}`);
+    event.preventDefault();
+  }
+})
+
 window.addEventListener("DOMContentLoaded", function () {
   let x = location.search.split('cit=')[1];
   if (x != undefined) {
