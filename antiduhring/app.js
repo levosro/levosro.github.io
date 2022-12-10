@@ -55,174 +55,186 @@ document.addEventListener('copy', (event) => {
 })
 
 window.addEventListener("DOMContentLoaded", function () {
-  // setTimeout(() => {
-  // console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro'))[0]);
-  // }, 5000);
-  let x = location.search.split('id=')[1];
-  if (x != undefined) {
-    document.querySelector('header').innerHTML = '<form id="form1" action="javascript:"></form>'
-    const container = document.getElementById('container');
-    container.innerHTML = `<div class="review"> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`
+  let myPromise = new Promise(function (myResolve, myReject) {
+    let voices = window.speechSynthesis.getVoices();
+    if (voices.length !== 0) {
+      myResolve(voices);
+    } else {
+      window.speechSynthesis.addEventListener("voiceschanged", function () {
+        voices = window.speechSynthesis.getVoices();
+        myResolve(voices);
+      });
+    }
+  });
 
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const randomBtn = document.querySelector('.random-btn');
-    const home = document.getElementById('home');
+  myPromise.then(
+    function (value) {
+      let x = location.search.split('id=')[1];
+      if (x != undefined) {
+        document.querySelector('header').innerHTML = '<form id="form1" action="javascript:"></form>'
+        const container = document.getElementById('container');
+        container.innerHTML = `<div class="review"> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`
 
-    home.addEventListener('click', function () {
-      window.location.href = '../index.html'
-    })
-    prevBtn.addEventListener('click', function () {
-      if (currentItem == 0) {
-        currentItem = chapters.length - 1;
-      }
-      else {
-        currentItem--;
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-    });
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const randomBtn = document.querySelector('.random-btn');
+        const home = document.getElementById('home');
 
-    nextBtn.addEventListener('click', function () {
-      if (currentItem == chapters.length - 1) {
-        currentItem = 0;
-      }
-      else {
-        currentItem++;
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-      // changeChapter(currentItem);
-    });
+        home.addEventListener('click', function () {
+          window.location.href = '../index.html'
+        })
+        prevBtn.addEventListener('click', function () {
+          if (currentItem == 0) {
+            currentItem = chapters.length - 1;
+          }
+          else {
+            currentItem--;
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
+        });
 
-    randomBtn.addEventListener('click', function () {
-      let x = currentItem
-      currentItem = Math.floor(Math.random() * chapters.length);
-      while (currentItem == x) {
-        currentItem = Math.floor(Math.random() * chapters.length);
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-    });
+        nextBtn.addEventListener('click', function () {
+          if (currentItem == chapters.length - 1) {
+            currentItem = 0;
+          }
+          else {
+            currentItem++;
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
+          // changeChapter(currentItem);
+        });
 
-    document.querySelector('#TOC').setAttribute('display', 'none')
-
-    try {
-      if (x.includes('C')) {
-        let c = x.split('C')[1]
-        let chapter = chapters.filter(element => element.idCh.indexOf(c) == 0)[0];
-        currentItem = chapters.indexOf(chapter);
-        changeChapter(currentItem);
-        generateTOC();
-        let btnX = btnList.filter(element => element.idChr == c)[0]
-        let k = btnList.indexOf(btnX)
-        let text = texts.filter(element => element.idChr == c)[0];
-        openButton(text, btnX, k);
-      }
-      else if (x.includes('P')) {
-        let c = x.split('P')[1]
-        let chapter = chapters.filter(element => element.idCh.indexOf(c) == 0)[0];
-        currentItem = chapters.indexOf(chapter);
-        changeChapter(currentItem);
-        generateTOC();
-      }
-      else if (x.includes('T')) {
-        let t = x.split('T')[1]
-        let text = texts.filter(element => element.idChr == t)[0];
-        let chapter = chapters.filter(element => text.idChr.includes(element.idCh))[0];
-        currentItem = chapters.indexOf(chapter);
-        changeChapter(currentItem);
-        generateTOC();
-        let btnX = btnList.filter(element => element.idChr == t)[0]
-        let k = btnList.indexOf(btnX)
-        openButton(text, btnX, k);
-        // Search2();
-      }
-      else {
-        let x = currentItem
-        currentItem = Math.floor(Math.random() * chapters.length);
-        while (currentItem <= 2 && currentItem != x) {
+        randomBtn.addEventListener('click', function () {
+          let x = currentItem
           currentItem = Math.floor(Math.random() * chapters.length);
+          while (currentItem == x) {
+            currentItem = Math.floor(Math.random() * chapters.length);
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
+        });
+
+        document.querySelector('#TOC').setAttribute('display', 'none')
+
+        try {
+          if (x.includes('C')) {
+            let c = x.split('C')[1]
+            let chapter = chapters.filter(element => element.idCh.indexOf(c) == 0)[0];
+            currentItem = chapters.indexOf(chapter);
+            changeChapter(currentItem);
+            generateTOC();
+            let btnX = btnList.filter(element => element.idChr == c)[0]
+            let k = btnList.indexOf(btnX)
+            let text = texts.filter(element => element.idChr == c)[0];
+            openButton(text, btnX, k);
+          }
+          else if (x.includes('P')) {
+            let c = x.split('P')[1]
+            let chapter = chapters.filter(element => element.idCh.indexOf(c) == 0)[0];
+            currentItem = chapters.indexOf(chapter);
+            changeChapter(currentItem);
+            generateTOC();
+          }
+          else if (x.includes('T')) {
+            let t = x.split('T')[1]
+            let text = texts.filter(element => element.idChr == t)[0];
+            let chapter = chapters.filter(element => text.idChr.includes(element.idCh))[0];
+            currentItem = chapters.indexOf(chapter);
+            changeChapter(currentItem);
+            generateTOC();
+            let btnX = btnList.filter(element => element.idChr == t)[0]
+            let k = btnList.indexOf(btnX)
+            openButton(text, btnX, k);
+            // Search2();
+          }
+          else {
+            let x = currentItem
+            currentItem = Math.floor(Math.random() * chapters.length);
+            while (currentItem <= 2 && currentItem != x) {
+              currentItem = Math.floor(Math.random() * chapters.length);
+            }
+            const chapter = chapters[currentItem]
+            window.location.href = `./index.html?id=C${chapter.idCh}`;
+          }
+        } catch (TypeError) {
+          let x = currentItem
+          currentItem = Math.floor(Math.random() * chapters.length);
+          while (currentItem <= 2 && currentItem != x) {
+            currentItem = Math.floor(Math.random() * chapters.length);
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
         }
-        const chapter = chapters[currentItem]
-        window.location.href = `./index.html?id=C${chapter.idCh}`;
+        let target = window.location.href.split('#')[1];
+        // console.log(target)
+        if (target != undefined) {
+          let textElement = document.querySelector('.titlu')
+          if (target.includes('cit')) { textElement = document.querySelector(`a#${target}`) }
+          else {
+            textElement = document.getElementById(target)
+          }
+          textElement.scrollIntoView({ behavior: 'smooth' })
+        }
       }
-    } catch (TypeError) {
-      let x = currentItem
-      currentItem = Math.floor(Math.random() * chapters.length);
-      while (currentItem <= 2 && currentItem != x) {
-        currentItem = Math.floor(Math.random() * chapters.length);
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-    }
-    let target = window.location.href.split('#')[1];
-    // console.log(target)
-    if (target != undefined) {
-      let textElement = document.querySelector('.titlu')
-      if (target.includes('cit')) { textElement = document.querySelector(`a#${target}`) }
       else {
-        textElement = document.getElementById(target)
+        const bookContent = document.getElementById('bookContent');
+        bookContent.setAttribute('display', 'none');
+        // const container = document.getElementById('container');
+        // container.setAttribute('display', 'none');
+        let res = ''
+        res = res + '<div id="searchTOC">';
+        res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button></center> <div></div>';
+        res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
+
+
+        for (let p = 0; p < texts.length; p++) {
+          let text = texts[p];
+          let partX = parts.filter(item => text.idChr.indexOf(item.idPt) == 0)[0];
+          res = res + `<tr><td><span style="text-align: center;"><div><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">${partX.title}: <b>${text.title}</b></a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`;
+
+        }
+        res = res + '</tbody></table></div>'
+
+        res = res + '<div id="tocMAIN">'
+        res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td>'
+
+        // res = res + `<div style="text-align: center;"><a href="./index.html?id=0.01">${chapters[0].title}</a></div>`;
+        // res = res + `<div style="text-align: center;"><a href="./index.html?id=0.02">${chapters[1].title}</a></div>`;
+
+        // res = res + '<ul>'
+        for (let i = 0; i < parts.length; i++) {
+          let part = parts[i];
+          res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=C${part.idPt}" id="a${part.idPt}">${part.title}</a></b></div>`;
+          let listTx = []
+          listTx = texts.filter(item => item.idChr.indexOf(part.idPt) == 0);
+          // console.log(listTx)
+          res = res + `<ul class="partOl">`
+          for (let j = 0; j < listTx.length; j++) {
+            let text = listTx[j];
+            res = res + `<li><a href="./index.html?id=T${text.idChr}" id="aT${text.idChr}">${text.title}</a></li>`;
+
+          }
+          res = res + '</ul>';
+        }
+        res = res + `</td></tr></tbody></table>`;
+        let TOC = document.getElementById('TOC');
+        TOC.innerHTML = res;
+        const search = document.getElementById("searchTOC");
+        const home = document.getElementById('home');
+
+        home.addEventListener('click', function () {
+          window.location.href = '../index.html'
+        })
+        let textList = search.getElementsByTagName("tr");
+        for (let i = 1; i < textList.length; i++) {
+          textList[i].style.display = "none";
+
+        }
+        Search2('tr', 'searchTOC', 'textInput2', 1, 'tocMAIN')
       }
-      textElement.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-  else {
-    const bookContent = document.getElementById('bookContent');
-    bookContent.setAttribute('display', 'none');
-    // const container = document.getElementById('container');
-    // container.setAttribute('display', 'none');
-    let res = ''
-    res = res + '<div id="searchTOC">';
-    res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button></center> <div></div>';
-    res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
-
-
-    for (let p = 0; p < texts.length; p++) {
-      let text = texts[p];
-      let partX = parts.filter(item => text.idChr.indexOf(item.idPt) == 0)[0];
-      res = res + `<tr><td><span style="text-align: center;"><div><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">${partX.title}: <b>${text.title}</b></a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`;
-
-    }
-    res = res + '</tbody></table></div>'
-
-    res = res + '<div id="tocMAIN">'
-    res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td>'
-
-    // res = res + `<div style="text-align: center;"><a href="./index.html?id=0.01">${chapters[0].title}</a></div>`;
-    // res = res + `<div style="text-align: center;"><a href="./index.html?id=0.02">${chapters[1].title}</a></div>`;
-
-    // res = res + '<ul>'
-    for (let i = 0; i < parts.length; i++) {
-      let part = parts[i];
-      res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=C${part.idPt}" id="a${part.idPt}">${part.title}</a></b></div>`;
-      let listTx = []
-      listTx = texts.filter(item => item.idChr.indexOf(part.idPt) == 0);
-      // console.log(listTx)
-      res = res + `<ul class="partOl">`
-      for (let j = 0; j < listTx.length; j++) {
-        let text = listTx[j];
-        res = res + `<li><a href="./index.html?id=T${text.idChr}" id="aT${text.idChr}">${text.title}</a></li>`;
-
-      }
-      res = res + '</ul>';
-    }
-    res = res + `</td></tr></tbody></table>`;
-    let TOC = document.getElementById('TOC');
-    TOC.innerHTML = res;
-    const search = document.getElementById("searchTOC");
-    const home = document.getElementById('home');
-
-    home.addEventListener('click', function () {
-      window.location.href = '../index.html'
     })
-    let textList = search.getElementsByTagName("tr");
-    for (let i = 1; i < textList.length; i++) {
-      textList[i].style.display = "none";
-
-    }
-    Search2('tr', 'searchTOC', 'textInput2', 1, 'tocMAIN')
-  }
 });
 
 window.onclick = function (event) {

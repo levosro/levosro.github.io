@@ -18,6 +18,21 @@ class ExpandedButton {
   }
 }
 
+function highlight(element) {
+  let defaultBG = element.style.backgroundColor;
+  let defaultTransition = element.style.transition;
+
+  element.style.transition = "background 1s";
+  element.style.backgroundColor = "#c41616";
+
+  setTimeout(function () {
+    element.style.backgroundColor = defaultBG;
+    setTimeout(function () {
+      element.style.transition = defaultTransition;
+    }, 1000);
+  }, 1000);
+}
+
 const synth = window.speechSynthesis;
 // let utterThis = new SpeechSynthesisUtterance()
 // setTimeout(() => {
@@ -56,216 +71,218 @@ document.addEventListener('copy', (event) => {
 })
 
 window.addEventListener("DOMContentLoaded", function () {
-  // setTimeout(() => {
-  // console.log(window.speechSynthesis.getVoices().filter(item => item.lang.includes('ro'))[0]);
-  // }, 5000);
-  let x = location.search.split('id=')[1];
-  if (x != undefined) {
-    document.querySelector('header').innerHTML = '<form id="form1" action="javascript:"></form>'
-    const container = document.getElementById('container');
-    container.innerHTML = `<div class="review"> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="citate">Citate din scrierile lui Lenin</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`
-
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const randomBtn = document.querySelector('.random-btn');
-    const citateList = document.getElementById('citate');
-    const home = document.getElementById('home');
-
-    home.addEventListener('click', function () {
-      window.location.href = '../index.html'
-    })
-    prevBtn.addEventListener('click', function () {
-      if (currentItem == 0) {
-        currentItem = chapters.length - 1;
-      }
-      else {
-        currentItem--;
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-    });
-
-    nextBtn.addEventListener('click', function () {
-      if (currentItem == chapters.length - 1) {
-        currentItem = 0;
-      }
-      else {
-        currentItem++;
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-      // changeChapter(currentItem);
-    });
-
-    randomBtn.addEventListener('click', function () {
-      let x = currentItem
-      currentItem = Math.floor(Math.random() * chapters.length);
-      while (currentItem <= 2 && currentItem != x) {
-        currentItem = Math.floor(Math.random() * chapters.length);
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-    });
-
-    citateList.addEventListener('click', function () {
-      let citItem = Math.floor(Math.random() * citate.length);
-      // console.log(citItem)
-      window.location.href = `./citate.html?cit=${citItem}`;
-    })
-
-    document.querySelector('#TOC').setAttribute('display', 'none')
-
-    // try {
-    if (x.includes('P')) {
-      let p = x.split('P')[1]
-      let part = parts.filter(element => element.idPt == p)[0];
-      let chapter = chapters.filter(element => element.idCh.indexOf(part.idPt) == 0)[0];
-      currentItem = chapters.indexOf(chapter);
-      changeChapter(currentItem);
-      generateTOC();
+  let myPromise = new Promise(function (myResolve, myReject) {
+    let voices = window.speechSynthesis.getVoices();
+    if (voices.length !== 0) {
+      myResolve(voices);
+    } else {
+      window.speechSynthesis.addEventListener("voiceschanged", function () {
+        voices = window.speechSynthesis.getVoices();
+        myResolve(voices);
+      });
     }
-    else if (x.includes('C')) {
-      let c = x.split('C')[1]
-      let chapter = chapters.filter(element => element.idCh.indexOf(c) == 0)[0];
-      currentItem = chapters.indexOf(chapter);
-      changeChapter(currentItem);
-      generateTOC();
-    }
-    else if (x.includes('T')) {
-      let t = x.split('T')[1]
-      let text = texts.filter(element => element.idChr == t)[0];
-      let cSearch = t.substring(0, 4)
-      let chapter = chapters.filter(element => element.idCh.includes(cSearch))[0];
-      currentItem = chapters.indexOf(chapter);
-      changeChapter(currentItem);
-      generateTOC();
-      let btnX = btnList.filter(element => element.idChr == t)[0]
-      let k = btnList.indexOf(btnX)
-      openButton(text, btnX, k);
-      // Search2();
-    }
-    else if (x == '0.01') {
-      currentItem = 0;
-      changeChapter(currentItem);
-      generateTOC();
-    }
-    else if (x == '0.02') {
-      currentItem = 1;
-      changeChapter(currentItem);
-      generateTOC();
-    }
-    else {
-      let x = currentItem
-      currentItem = Math.floor(Math.random() * chapters.length);
-      while (currentItem <= 2 && currentItem != x) {
-        currentItem = Math.floor(Math.random() * chapters.length);
-      }
-      const chapter = chapters[currentItem]
-      window.location.href = `./index.html?id=C${chapter.idCh}`;
-    }
-    // } catch (TypeError) {
-    //   let x = currentItem
-    //   currentItem = Math.floor(Math.random() * chapters.length);
-    //   while (currentItem <= 2 && currentItem != x) {
-    //     currentItem = Math.floor(Math.random() * chapters.length);
-    //   }
-    //   const chapter = chapters[currentItem]
-    //   window.location.href = `./index.html?id=C${chapter.idCh}`;
-    // }
-    let target = window.location.href.split('#')[1];
-    // console.log(target)
-    if (target != undefined) {
-      let textElement = document.querySelector('.titlu')
-      if (target.includes('cit')) { textElement = document.querySelector(`a#${target}`) }
-      else {
-        textElement = document.getElementById(target)
-      }
-      // console.log(textElement)
-      // const y = textElement.getBoundingClientRect().top;
-      // console.log(y);
-      textElement.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-  else {
-    const bookContent = document.getElementById('bookContent');
-    bookContent.setAttribute('display', 'none');
-    // const container = document.getElementById('container');
-    // container.setAttribute('display', 'none');
-    let res = ''
-    res = res + '<div id="searchTOC">';
-    res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button> <div></div><button class="expand-btn" id="citate">Citate din scrierile lui Lenin</button></center>';
-    res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
+  });
 
-    for (let p = 0; p < texts.length; p++) {
-      let text = texts[p];
+  myPromise.then(
+    function (value) {
+      let x = location.search.split('id=')[1];
+      if (x != undefined) {
+        document.querySelector('header').innerHTML = '<form id="form1" action="javascript:"></form>'
+        const container = document.getElementById('container');
+        container.innerHTML = `<div class="review"> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="citate">Citate din scrierile lui Lenin</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`
 
-      if (text.title != '') { res = res + `<tr><td><span style="text-align: center;"><div><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">${text.info}: <b>${text.title}</b></a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`; }
-      else {
-        res = res + `<tr><td><span style="text-align: center;"><div><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">${text.info}</a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`;
-      }
-    }
-    for (let p = 0; p < citate.length; p++) {
-      let citat = citate[p];
-      res = res + `<tr><td><span style="text-align: center;"><div><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
-    }
-    res = res + '</tbody></table></div>'
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const randomBtn = document.querySelector('.random-btn');
+        const citateList = document.getElementById('citate');
+        const home = document.getElementById('home');
 
-    res = res + '<div id="tocMAIN">'
-    res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td>'
-
-    // res = res + '<div><a href="./index.html" id="A0.0">Antologia Marx-Engels</a></div>';
-    res = res + `<div style="text-align: center;"><a href="./index.html?id=0.01">${chapters[0].title}</a></div>`;
-    res = res + `<div style="text-align: center;"><a href="./index.html?id=0.02">${chapters[1].title}</a></div>`;
-
-    // res = res + '<ul>'
-    for (let i = 0; i < parts.length; i++) {
-      let part = parts[i];
-      res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=P${part.idPt}" id="a${part.idPt}">${part.title}</a></b></div>`;
-      let listCh = []
-      listCh = chapters.filter(item => item.idCh.indexOf(part.idPt.substring(0, 2)) == 0);
-      res = res + `<ol class="partOl">`
-      for (let j = 0; j < listCh.length; j++) {
-        let chapter = listCh[j];
-        res = res + `<li><a href="./index.html?id=C${chapter.idCh}" id="aC${chapter.idCh}">${chapter.title}</a></li>`;
-        let listTx = [];
-        listTx = texts.filter(item => item.idChr.indexOf(chapter.idCh) == 0)
-        res = res + '<ul>'
-        for (let p = 0; p < listTx.length; p++) {
-          let text = listTx[p];
-          if (text.title != '') { res = res + `<li><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="aCh${text.idChr}">${text.title}</a></li>`; }
+        home.addEventListener('click', function () {
+          window.location.href = '../index.html'
+        })
+        prevBtn.addEventListener('click', function () {
+          if (currentItem == 0) {
+            currentItem = chapters.length - 1;
+          }
           else {
-            res = res + `<li><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="aCh${text.idChr}">${text.info}</a></li>`;
+            currentItem--;
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
+        });
+
+        nextBtn.addEventListener('click', function () {
+          if (currentItem == chapters.length - 1) {
+            currentItem = 0;
+          }
+          else {
+            currentItem++;
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
+          // changeChapter(currentItem);
+        });
+
+        randomBtn.addEventListener('click', function () {
+          let x = currentItem
+          currentItem = Math.floor(Math.random() * chapters.length);
+          while (currentItem <= 2 && currentItem != x) {
+            currentItem = Math.floor(Math.random() * chapters.length);
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
+        });
+
+        citateList.addEventListener('click', function () {
+          let citItem = Math.floor(Math.random() * citate.length);
+          // console.log(citItem)
+          window.location.href = `./citate.html?cit=${citItem}`;
+        })
+
+        document.querySelector('#TOC').setAttribute('display', 'none')
+
+        // try {
+        if (x.includes('P')) {
+          let p = x.split('P')[1]
+          let part = parts.filter(element => element.idPt == p)[0];
+          let chapter = chapters.filter(element => element.idCh.indexOf(part.idPt) == 0)[0];
+          currentItem = chapters.indexOf(chapter);
+          changeChapter(currentItem);
+          generateTOC();
+        }
+        else if (x.includes('C')) {
+          let c = x.split('C')[1]
+          let chapter = chapters.filter(element => element.idCh.indexOf(c) == 0)[0];
+          currentItem = chapters.indexOf(chapter);
+          changeChapter(currentItem);
+          generateTOC();
+        }
+        else if (x.includes('T')) {
+          let t = x.split('T')[1]
+          let text = texts.filter(element => element.idChr == t)[0];
+          let cSearch = t.substring(0, 4)
+          let chapter = chapters.filter(element => element.idCh.includes(cSearch))[0];
+          currentItem = chapters.indexOf(chapter);
+          changeChapter(currentItem);
+          generateTOC();
+          let btnX = btnList.filter(element => element.idChr == t)[0]
+          let k = btnList.indexOf(btnX)
+          openButton(text, btnX, k);
+          // Search2();
+        }
+        else if (x == '0.01') {
+          currentItem = 0;
+          changeChapter(currentItem);
+          generateTOC();
+        }
+        else if (x == '0.02') {
+          currentItem = 1;
+          changeChapter(currentItem);
+          generateTOC();
+        }
+        else {
+          let x = currentItem
+          currentItem = Math.floor(Math.random() * chapters.length);
+          while (currentItem <= 2 && currentItem != x) {
+            currentItem = Math.floor(Math.random() * chapters.length);
+          }
+          const chapter = chapters[currentItem]
+          window.location.href = `./index.html?id=C${chapter.idCh}`;
+        }
+        let target = window.location.href.split('#')[1];
+        if (target != undefined) {
+          let textElement = document.querySelector('.titlu')
+          if (target.includes('cit')) { textElement = document.querySelector(`a#${target}`) }
+          else {
+            textElement = document.getElementById(target)
+          }
+          textElement.scrollIntoView()
+          if (target.includes('cit')) {
+            highlight(textElement.parentElement)
           }
         }
-        res = res + '</ul>';
-
       }
-      res = res + '</ol>';
-    }
-    res = res + `</td></tr></tbody></table>`;
-    let TOC = document.getElementById('TOC');
-    TOC.innerHTML = res;
-    const search = document.getElementById("searchTOC");
-    const home = document.getElementById('home');
-    const citateList = document.getElementById('citate');
+      else {
+        const bookContent = document.getElementById('bookContent');
+        bookContent.setAttribute('display', 'none');
+        // const container = document.getElementById('container');
+        // container.setAttribute('display', 'none');
+        let res = ''
+        res = res + '<div id="searchTOC">';
+        res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button> <div></div><button class="expand-btn" id="citate">Citate din scrierile lui Lenin</button></center>';
+        res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
 
-    home.addEventListener('click', function () {
-      window.location.href = '../index.html'
+        for (let p = 0; p < texts.length; p++) {
+          let text = texts[p];
+
+          if (text.title != '') { res = res + `<tr><td><span style="text-align: center;"><div><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">${text.info}: <b>${text.title}</b></a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`; }
+          else {
+            res = res + `<tr><td><span style="text-align: center;"><div><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">${text.info}</a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`;
+          }
+        }
+        for (let p = 0; p < citate.length; p++) {
+          let citat = citate[p];
+          res = res + `<tr><td><span style="text-align: center;"><div><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
+        }
+        res = res + '</tbody></table></div>'
+
+        res = res + '<div id="tocMAIN">'
+        res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td>'
+
+        // res = res + '<div><a href="./index.html" id="A0.0">Antologia Marx-Engels</a></div>';
+        res = res + `<div style="text-align: center;"><a href="./index.html?id=0.01">${chapters[0].title}</a></div>`;
+        res = res + `<div style="text-align: center;"><a href="./index.html?id=0.02">${chapters[1].title}</a></div>`;
+
+        // res = res + '<ul>'
+        for (let i = 0; i < parts.length; i++) {
+          let part = parts[i];
+          res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=P${part.idPt}" id="a${part.idPt}">${part.title}</a></b></div>`;
+          let listCh = []
+          listCh = chapters.filter(item => item.idCh.indexOf(part.idPt.substring(0, 2)) == 0);
+          res = res + `<ol class="partOl">`
+          for (let j = 0; j < listCh.length; j++) {
+            let chapter = listCh[j];
+            res = res + `<li><a href="./index.html?id=C${chapter.idCh}" id="aC${chapter.idCh}">${chapter.title}</a></li>`;
+            let listTx = [];
+            listTx = texts.filter(item => item.idChr.indexOf(chapter.idCh) == 0)
+            res = res + '<ul>'
+            for (let p = 0; p < listTx.length; p++) {
+              let text = listTx[p];
+              if (text.title != '') { res = res + `<li><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="aCh${text.idChr}">${text.title}</a></li>`; }
+              else {
+                res = res + `<li><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="aCh${text.idChr}">${text.info}</a></li>`;
+              }
+            }
+            res = res + '</ul>';
+
+          }
+          res = res + '</ol>';
+        }
+        res = res + `</td></tr></tbody></table>`;
+        let TOC = document.getElementById('TOC');
+        TOC.innerHTML = res;
+        const search = document.getElementById("searchTOC");
+        const home = document.getElementById('home');
+        const citateList = document.getElementById('citate');
+
+        home.addEventListener('click', function () {
+          window.location.href = '../index.html'
+        })
+
+        citateList.addEventListener('click', function () {
+          let citItem = Math.floor(Math.random() * citate.length);
+          // console.log(citItem)
+          window.location.href = `./citate.html?cit=${citItem}`;
+        })
+
+        let textList = search.getElementsByTagName("tr");
+        for (let i = 1; i < textList.length; i++) {
+          textList[i].style.display = "none";
+
+        }
+        Search2('tr', 'searchTOC', 'textInput2', 1, 'tocMAIN')
+      }
     })
-
-    citateList.addEventListener('click', function () {
-      let citItem = Math.floor(Math.random() * citate.length);
-      // console.log(citItem)
-      window.location.href = `./citate.html?cit=${citItem}`;
-    })
-
-    let textList = search.getElementsByTagName("tr");
-    for (let i = 1; i < textList.length; i++) {
-      textList[i].style.display = "none";
-
-    }
-    Search2('tr', 'searchTOC', 'textInput2', 1, 'tocMAIN')
-  }
 });
 
 window.onclick = function (event) {
