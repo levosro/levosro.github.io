@@ -180,7 +180,7 @@ function Search2() {
           item = item[0];
           item = parseInt(item.substring(2, item.length - 2));
           // console.log(item);
-          notesList.push(notes[item - 1])
+          notesList.push(notes.filter(itemK => itemK.idNote == item)[0])
         })
         notesList.forEach(function (note) {
           content = content + note.content.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/<[^>]*>/g, '');
