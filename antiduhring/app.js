@@ -285,7 +285,7 @@ function anchorChanger() {
       let x = notesList[i];
 
       let a = document.getElementById(`n${x}`);
-      let note = notes[x - 1];
+      let note = notes.filter(item => item.idNote == x)[0];
       a.onclick = function () {
         // console.log(note);
         modalBody.innerHTML = note.content
@@ -449,7 +449,7 @@ function openButton(text, btnX, i) {
   if (listA.length > 0) {
     for (iX = 0; iX < listA.length; iX++) {
       let x = listA[iX];
-      let note = notes[x - 1];
+      let note = notes.filter(item => item.idNote == x)[0];
       res = res + note.content
     }
   }
@@ -524,7 +524,7 @@ function addFunct(btnList) {
         if (listA.length > 0) {
           for (i = 0; i < listA.length; i++) {
             let x = listA[i];
-            let note = notes[x - 1];
+            let note = notes.filter(item => item.idNote == x)[0];
             res = res + note.content
           }
         }

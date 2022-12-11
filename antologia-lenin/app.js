@@ -322,7 +322,7 @@ function changeChapter(index) {
     info.innerHTML = descriere;
     let x = 0;
     let listA = []
-    for (x = 1; x <= 320; x++) {
+    for (x = 1; x < notes.length; x++) {
       if (info.querySelector(`#n${x}`)) { listA.push(x); }
 
     }
@@ -331,7 +331,7 @@ function changeChapter(index) {
     if (listA.length > 0) {
       for (k = 0; k < listA.length; k++) {
         let x = listA[k];
-        let note = notes[x - 1];
+        let note = notes.filter(item => item.idNote == x)[0];
         res = res + note.content
       }
     }
@@ -411,7 +411,7 @@ function changeChapter(index) {
 function anchorChanger() {
   let x = 0;
   let notesList = []
-  for (x = 1; x <= 320; x++) {
+  for (x = 1; x < notes.length; x++) {
     if (document.getElementById(`n${x}`)) { notesList.push(x); }
   }
   let i = 0;
@@ -421,9 +421,8 @@ function anchorChanger() {
       let x = notesList[i];
 
       let a = document.getElementById(`n${x}`);
-      let note = notes[x - 1];
+      let note = notes.filter(item => item.idNote == x)[0];
       a.onclick = function () {
-        // console.log(note);
         modalBody.innerHTML = note.content
         modal.style.display = "block";
       }
@@ -636,7 +635,7 @@ function openButton(text, btnX, i) {
   contentsX.innerHTML = resString;
   let x = 0;
   let listA = []
-  for (x = 1; x <= 320; x++) {
+  for (x = 1; x < notes.length; x++) {
     if (contentsX.querySelector(`#n${x}`)) { listA.push(x); }
   }
   let iX = 0;
@@ -644,7 +643,7 @@ function openButton(text, btnX, i) {
   if (listA.length > 0) {
     for (iX = 0; iX < listA.length; iX++) {
       let x = listA[iX];
-      let note = notes[x - 1];
+      let note = notes.filter(item => item.idNote == x)[0];
       res = res + note.content
     }
   }
@@ -714,7 +713,7 @@ function addFunct(btnList) {
         contentsX.innerHTML = resString;
         let x = 0;
         let listA = []
-        for (x = 1; x <= 320; x++) {
+        for (x = 1; x < notes.length; x++) {
           if (contentsX.querySelector(`#n${x}`)) { listA.push(x); }
 
         }
@@ -723,7 +722,7 @@ function addFunct(btnList) {
         if (listA.length > 0) {
           for (i = 0; i < listA.length; i++) {
             let x = listA[i];
-            let note = notes[x - 1];
+            let note = notes.filter(item => item.idNote == x)[0];
             res = res + note.content
           }
         }
