@@ -355,6 +355,12 @@ table {
   MARGIN-RIGHT: 5%;
   FONT-FAMILY: "font.otf", serif;
   TEXT-ALIGN: justify;
+  border: black;
+}
+
+td.special {
+  background-color: black;
+  width: 1px
 }
 
 UL.disc {
