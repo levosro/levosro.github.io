@@ -312,7 +312,7 @@ function changeChapter(index) {
       }
     }
     else {
-      for (i = 1; i < item.description.length; i++) {
+      for (i = 0; i < item.description.length; i++) {
         descriere = descriere + item.description[i];
       }
     }
@@ -337,15 +337,6 @@ function changeChapter(index) {
     }
     const noteZone = document.getElementById('notes');
     noteZone.innerHTML = res;
-    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    //   // console.log(anchor)
-    //   anchor.addEventListener('click', function (e) {
-    //     e.preventDefault();
-    //     document.getElementById([this.getAttribute('href').substring(1)]).scrollIntoView({
-    //       behavior: 'smooth'
-    //     });
-    //   });
-    // });
     if (synth.getVoices().filter(item => item.lang.includes('ro')).length > 0) {
       document.getElementById(`synthZone`).innerHTML = `<button class="expand-btn" id="play"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop"><i class="fa fa-stop"></i></button>`
       const readText = document.getElementById(`play`);
@@ -659,16 +650,39 @@ function openButton(text, btnX, i) {
   //   });
   // });
   if (synth.getVoices().filter(item => item.lang.includes('ro')).length > 0) {
-    document.getElementById(`synthZone${text.idChr}`).innerHTML = `<button class="expand-btn" id="play${text.idChr}"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop${text.idChr}"><i class="fa fa-stop"></i></button>`
+    document.getElementById(`synthZone${text.idChr}`).innerHTML = `<button class="expand-btn" id="play${text.idChr}"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop${text.idChr}"><i class="fa fa-stop"></i></button><div style="display: none"></div>`
     const readText = document.getElementById(`play${text.idChr}`);
     readText.addEventListener('click', function () {
       synth.cancel()
+      let textToRead = Array.prototype.slice.call(document.getElementById(`content${text.idChr}`).children)
       for (let i = 0; i < text.content.length; i++) {
-        let ourText = text.content[i].replace(/<[^>]*>/g, '');
-        let utterThis = new SpeechSynthesisUtterance();
-        utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
-        utterThis.text = ourText;
-        synth.speak(utterThis)
+        if (text.content[i] != '<p>&nbsp;</p>') {
+          let utterThis = new SpeechSynthesisUtterance();
+          utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
+          document.getElementById(`synthZone${text.idChr}`).lastChild.innerHTML = text.content[i]
+          let node = textToRead.filter(item => document.getElementById(`synthZone${text.idChr}`).lastChild.innerHTML.replace(/<[^>]*>/g, '') == item.innerHTML.replace(/<[^>]*>/g, ''))[0]
+          // console.log(node)
+          utterThis.text = node.innerHTML;
+          let saveNode1 = node.innerHTML
+          let saveNode = node.innerHTML
+          utterThis.onboundary = function (event) {
+            if (event.charIndex >= 0) {
+              let index = event.charIndex
+              let indexSp = saveNode1.indexOf(' ', index)
+              if (indexSp == -1) {
+                indexSp = saveNode1.length
+              }
+              let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
+              node.innerHTML = innerHTML
+            }
+          }
+          utterThis.onend = function () {
+            node.innerHTML = saveNode1
+          }
+          synth.speak(utterThis)
+        }
+
+        // utterThis.onstart = () => console.log()
       }
     })
     const stopText = document.getElementById(`stop${text.idChr}`);
@@ -739,16 +753,38 @@ function addFunct(btnList) {
         //   });
         // });
         if (synth.getVoices().filter(item => item.lang.includes('ro')).length > 0) {
-          document.getElementById(`synthZone${text.idChr}`).innerHTML = `<button class="expand-btn" id="play${text.idChr}"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop${text.idChr}"><i class="fa fa-stop"></i></button>`
+          document.getElementById(`synthZone${text.idChr}`).innerHTML = `<button class="expand-btn" id="play${text.idChr}"><i class="fa fa-play"></i></button>&nbsp;<button class="expand-btn" id="stop${text.idChr}"><i class="fa fa-stop"></i></button><div style="display: none"></div>`
           const readText = document.getElementById(`play${text.idChr}`);
           readText.addEventListener('click', function () {
             synth.cancel()
+            let textToRead = Array.prototype.slice.call(document.getElementById(`content${text.idChr}`).children)
             for (let i = 0; i < text.content.length; i++) {
-              let ourText = text.content[i].replace(/<[^>]*>/g, '');
-              let utterThis = new SpeechSynthesisUtterance();
-              utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
-              utterThis.text = ourText;
-              synth.speak(utterThis)
+              if (text.content[i] != '<p>&nbsp;</p>') {
+                let utterThis = new SpeechSynthesisUtterance();
+                utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
+                document.getElementById(`synthZone${text.idChr}`).lastChild.innerHTML = text.content[i]
+                let node = textToRead.filter(item => document.getElementById(`synthZone${text.idChr}`).lastChild.innerHTML.replace(/<[^>]*>/g, '') == item.innerHTML.replace(/<[^>]*>/g, ''))[0]
+                // console.log(node)
+                utterThis.text = node.innerHTML;
+                let saveNode1 = node.innerHTML
+                let saveNode = node.innerHTML
+                utterThis.onboundary = function (event) {
+                  if (event.charIndex >= 0) {
+                    let index = event.charIndex
+                    let indexSp = saveNode1.indexOf(' ', index)
+                    if (indexSp == -1) {
+                      indexSp = saveNode1.length
+                    }
+                    let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
+                    node.innerHTML = innerHTML
+                  }
+                }
+                utterThis.onend = function () {
+                  node.innerHTML = saveNode1
+                }
+                synth.speak(utterThis)
+              }
+
               // utterThis.onstart = () => console.log()
             }
           })

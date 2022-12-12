@@ -239,6 +239,10 @@ Reviews
   margin-right: auto;
 }
 
+span.highlight {
+  background: rgba(196, 22, 22, 0.2);
+}
+
 .container {
   width: 80vw;
   max-width: 620px;

@@ -127,6 +127,12 @@ h2 {
   font-family: var(--ff-secondary);
 }
 
+
+
+span.highlight {
+  background: rgba(196, 22, 22, 0.2);
+}
+
 h1,
 h3,
 h4 {
