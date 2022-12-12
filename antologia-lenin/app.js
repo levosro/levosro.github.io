@@ -89,7 +89,7 @@ window.addEventListener("DOMContentLoaded", function () {
       if (x != undefined) {
         document.querySelector('header').innerHTML = '<form id="form1" action="javascript:"></form>'
         const container = document.getElementById('container');
-        container.innerHTML = `<div class="review"> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="citate">Citate din scrierile lui Lenin</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`
+        container.innerHTML = `<div class="review"> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn"><i class="fa fa-random"></i> Surprinde-mă</button> <div></div> <button class="expand-btn" id="citate"><i class="fa fa-quote-right"></i> Citate din scrierile lui Lenin</button> <div></div> <button class="expand-btn" id="home"><i class="fa fa-home"></i> Levos Homepage</button>`
 
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
@@ -209,7 +209,7 @@ window.addEventListener("DOMContentLoaded", function () {
         // container.setAttribute('display', 'none');
         let res = ''
         res = res + '<div id="searchTOC">';
-        res = res + '<div></div> <center><button class="expand-btn" id="home">Levos Homepage</button> <div></div><button class="expand-btn" id="citate">Citate din scrierile lui Lenin</button></center>';
+        res = res + '<div></div> <center><button class="expand-btn" id="download"><i class="fa fa-file-download"></i> Download EPUB</button><div></div><button class="expand-btn" id="home"><i class="fa fa-home"></i> Levos Homepage</button> <div></div> <button class="expand-btn" id="citate"><i class="fa fa-quote-right"></i> Citate din scrierile lui Lenin</button></center>';
         res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody> <tr> <td><div id="searchTextInput"><input type="text" id="textInput2" placeholder="Search"></div></td></tr></tbody></table><tbody><table style="width: 50%; margin-left: auto; margin-right: auto;">';
 
         for (let p = 0; p < texts.length; p++) {
@@ -264,6 +264,26 @@ window.addEventListener("DOMContentLoaded", function () {
         const search = document.getElementById("searchTOC");
         const home = document.getElementById('home');
         const citateList = document.getElementById('citate');
+
+        function downloadFile(url, fileName) {
+          fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
+            .then(res => res.blob())
+            .then(res => {
+              const aElement = document.createElement('a');
+              aElement.setAttribute('download', fileName);
+              const href = URL.createObjectURL(res);
+              aElement.href = href;
+              // aElement.setAttribute('href', href);
+              aElement.setAttribute('target', '_blank');
+              aElement.click();
+              URL.revokeObjectURL(href);
+            });
+        };
+
+
+        document.getElementById('download').addEventListener('click', function () {
+          downloadFile('./Antologia Lenin.epub', 'Antologia Lenin.epub')
+        })
 
         home.addEventListener('click', function () {
           window.location.href = '../index.html'
@@ -548,8 +568,8 @@ function generateTOC() {
   res = res + '<div id="toc">'
   let citItem = Math.floor(Math.random() * citate.length);
   // res = res + '<input id="left-menu" type="checkbox"> <input id="left-menu-reset" type="reset"> <nav class="left-navigation"> <main> <label class="menu-toggle" for="left-menu"><span>&nbsp;</span></label> <label class="menu-close" for="left-menu-reset"><span>&nbsp;</span></label> <menu>';
-  res = res + `<menuitem><menuitem> <span class="heading"><a href="./citate.html?cit=${citItem}" id="a0.0">Citate din scrierile lui Lenin</a></span> </menuitem>`;
-  res = res + '<menuitem><menuitem> <span class="heading"><a href="./index.html" id="A0.0">Antologia Lenin</a></span> </menuitem>';
+  res = res + `<menuitem><menuitem> <span class="heading"><a href="./citate.html?cit=${citItem}" id="a0.0"><i class="fa fa-quote-right"></i> Citate din scrierile lui Lenin</a></span> </menuitem>`;
+  res = res + '<menuitem><menuitem> <span class="heading"><a href="./index.html" id="A0.0"><i class="fa fa-book"></i> Antologia Lenin</a></span> </menuitem>';
   res = res + `<menuitem> <span><a href="./index.html?id=0.01">${chapters[0].title}</a></span> </menuitem>`;
   res = res + `<menuitem> <span><a href="./index.html?id=0.02">${chapters[1].title}</a></span> </menuitem>`;
   for (let i = 0; i < parts.length; i++) {

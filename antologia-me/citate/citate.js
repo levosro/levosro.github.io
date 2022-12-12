@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let x = location.search.split('cit=')[1];
   if (x != undefined) {
 
-    section.innerHTML = `<div class="title"> <h2>Citate din scrierile lui Marx și Engels</h2> <div class="underline"> </div> </div> <div class="review"> <div class="img-container"> </div> <h4 id="author"></h4> <p id="titlu"></p> <p id="an"></p> <p id="info"></p> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="save"> <i class="fas fa-save"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn">Surprinde-mă</button> <div></div> <button class="expand-btn" id="antologia">Antologia Marx-Engels</button> <div></div> <button class="expand-btn" id="home">Levos Homepage</button>`;
+    section.innerHTML = `<div class="title"> <h2>Citate din scrierile lui Marx și Engels</h2> <div class="underline"> </div> </div> <div class="review"> <div class="img-container"> </div> <h4 id="author"></h4> <p id="titlu"></p> <p id="an"></p> <p id="info"></p> <div class="button-container"> <button class="prev-btn"> <i class="fas fa-chevron-left"></i> </button> <button class="save"> <i class="fas fa-save"></i> </button> <button class="next-btn"> <i class="fas fa-chevron-right"></i> </button> </div> <button class="random-btn"><i class="fa fa-random"></i> Surprinde-mă</button> <div></div> <button class="expand-btn" id="antologia"><i class="fa fa-book"></i> Antologia Marx-Engels</button> <div></div> <button class="expand-btn" id="home"><i class="fa fa-home"></i> Levos Homepage</button>`;
 
     const antologia = document.getElementById('antologia');
 
@@ -247,7 +247,7 @@ function generateTOC() {
   let res = ''
   res = res + '<input id="left-menu" type="checkbox"> <input id="left-menu-reset" type="reset"> <nav class="left-navigation"> <main> <label class="menu-toggle" for="left-menu"><span>&nbsp;</span></label> <label class="menu-close" for="left-menu-reset"><span>&nbsp;</span></label> <menu>';
   res = res + '<div id="search">';
-  res = res + '<div id="searchTextInput"><input type="text" id="textInput" placeholder="Search"><i class="fa-solid fa-magnifying-glass"></i></div>';
+  res = res + '<div id="searchTextInput"><input type="text" id="textInput" placeholder="Search"></div>';
 
   for (let p = 0; p < texts.length; p++) {
     let text = texts[p];
@@ -268,8 +268,8 @@ function generateTOC() {
   res = res + '<div id="toc">'
   // res = res + '<input id="left-menu" type="checkbox"> <input id="left-menu-reset" type="reset"> <nav class="left-navigation"> <main> <label class="menu-toggle" for="left-menu"><span>&nbsp;</span></label> <label class="menu-close" for="left-menu-reset"><span>&nbsp;</span></label> <menu>';
   let citItem = Math.floor(Math.random() * citate.length);
-  res = res + `<menuitem><menuitem> <span class="heading"><a href="./citate.html?cit=${citItem}" id="a0.0">Citate din scrierile lui Marx și Engels</a></span> </menuitem>`;
-  res = res + '<menuitem><menuitem> <span class="heading"><a href="./index.html" id="A0.0">Antologia Marx-Engels</a></span> </menuitem>';
+  res = res + `<menuitem><menuitem> <span class="heading"><a href="./citate.html?cit=${citItem}" id="a0.0"><i class="fa fa-quote-right"></i> Citate din scrierile lui Marx și Engels</a></span> </menuitem>`;
+  res = res + '<menuitem><menuitem> <span class="heading"><a href="./index.html" id="A0.0"><i class="fa fa-book"></i> Antologia Marx-Engels</a></span> </menuitem>';
   res = res + `<menuitem> <span><a href="./index.html?id=0.01">${chapters[0].title}</a></span> </menuitem>`;
   res = res + `<menuitem> <span><a href="./index.html?id=0.02">${chapters[1].title}</a></span> </menuitem>`;
   for (let i = 0; i < parts.length; i++) {
