@@ -1,0 +1,15 @@
+export const notes = [
+{'idNote': '1','content': ['<p class="noind">[1]. Rosa Luxemburg se referă aici la prima serie a articolelor ei îndreptate împotriva lui Eduard Bernstein, care au apărut şi în lucrarea sa „Reformă socială sau revoluţie?“, tipărită în 1899.</p>'],},
+{'idNote': '2','content': ['<p class="noind">[2]. Această frază oportunistă a fost formulată de Eduard Bernstein, teoreticianul revizionismului, într-un articol al său apărut în „Neue Zeit“ (ianuarie 1898).</p>'],},
+{'idNote': '3','content': ['<p class="noind">[3]. Waldeck-Rousseau, unul dintre conducătorii republicanilor moderaţi, a fost chemat în 1899 în fruntea guvernului francez. El a invitat pe Galliffet, călăul Comunei din Paris, şi pe „socialistul“ Millerand să intre în cabinetul său. Participarea lui Millerand la guvernul reacţionar al lui Waldeck-Rousseau a dus în Franţa la o sciziune în rândurile socialiştilor şi a provocat vii discuţii în partidele Internaţionalei a II-a. Adepţii lui Bernstein în Germania şi cei ai lui Jaures în Franţa au luat apărarea millerandismului.</p>'],},
+{'idNote': '4','content': ['<p class="noind">[4]. Zicală după o fabulă a lui Esop: aici e Rodos, aici să sări, adică aici să arăţi ce ştii.</p>'],},
+{'idNote': '5','content': ['<p class="noind">[5]. E. Bernstein: „Die Voraussetzungen des Sozialismus und die Aufgaben der Sozialdemokratie“ („Premisele socialismului şi sarcinile social-democraţiei“), Stuttgart, 1899, pag. 183.</p>'],},
+{'idNote': '6','content': ['<p class="noind">[6]. <i>K. Marx</i> şi <i>F. Engels:</i> „Manifestul Partidului Comunist“, Editura politică, 1962, ediţia a VIII-a, pag. 44.</p>'],},
+{'idNote': '7','content': ['<p class="noind">[7]. Ibid.</p>'],},
+{'idNote': '8','content': ['<p class="noind">[8]. Ibid.</p>'],},
+{'idNote': '9','content': ['<p class="noind">[9]. E. Bernstein, op. cit., pag. 71.</p>'],},
+{'idNote': '10','content': ['<p class="noind">[10]. Vezi punctul de vedere al lui Marx şi al lui Lenin în această chestiune în lucrarea lui Lenin „Statul şi revoluţia“, capitolul al III-lea. (Vezi V. I. Lenin, Opere, vol. 25, E.S.P.L.P. 1956, pag. 409 şi urm.)</p>'],},
+{'idNote': '11','content': ['<p class="noind">[11]. Neînţelegerea rolului ţărănimii ca aliat al clasei muncitoare a fost una din „greşelile semimenşevice“ ale Rosei Luxemburg, pe care ulterior a corectat-o parţial.</p>'],},
+{'idNote': '12','content': ['<p class="noind">[12]. N. E. Baumann (1873—1905), bolşevic, membru al Comitetului de partid din Moscova al P.M.S.D.R., a fost ucis de agenţi ţarişti la 18 octombrie 1905.</p>'],},
+{'idNote': '13','content': ['<p class="noind">[13]. Rosa Luxemburg a participat la Congresul de la Londra al P.M.S.D.R. ca reprezentantă a Partidului social-democrat din Germania şi ca delegată a Social-democraţiei poloneze. Cuvântarea şi-a ţinut-o în limba rusă.</p>'],},
+];

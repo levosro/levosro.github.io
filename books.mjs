@@ -16,5 +16,11 @@ export const books = [
         'author': 'Friedrich Engels',
         'cover': './assets/antiduhring.png',
         'link': './antiduhring/index.html'
+    },
+    {
+        'title': 'Cuvântari și articole alese',
+        'author': 'Rosa Luxemburg',
+        'cover': './assets/luxemburg.png',
+        'link': './luxemburg/index.html'
     }
 ]
