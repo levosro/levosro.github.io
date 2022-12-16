@@ -222,7 +222,7 @@ window.addEventListener("DOMContentLoaded", function () {
         }
         for (let p = 0; p < citate.length; p++) {
           let citat = citate[p];
-          res = res + `<tr><td><span style="text-align: center;"><div><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
+          res = res + `<tr><td><span style="text-align: center;"><div><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
         }
         res = res + '</tbody></table></div>'
 
@@ -314,8 +314,6 @@ window.onclick = function (event) {
 }
 
 function changeChapter(index) {
-  // utterThis = new SpeechSynthesisUtterance()
-  // utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
   synth.cancel()
   const item = chapters[index];
   if (item.author == 'levos' || item.author == 'tucker') {
@@ -559,7 +557,7 @@ function generateTOC() {
   }
   for (let p = 0; p < citate.length; p++) {
     let citat = citate[p];
-    res = res + `<menuitem> <span><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.titlu}</a><hr style="width:30%;"/><div id="cit${citat.id}"></div></span> </menuitem>`;
+    res = res + `<menuitem> <span><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.titlu.replace(/<[^>]*>/g, '')}</a><hr style="width:30%;"/><div id="cit${citat.id}"></div></span> </menuitem>`;
   }
   res = res + '</div>'
 
@@ -695,10 +693,12 @@ function openButton(text, btnX, i) {
                 }
                 let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
                 node.innerHTML = innerHTML
+                anchorChanger()
               }
             }
             utterThis.onend = function () {
               node.innerHTML = saveNode1
+              anchorChanger()
             }
             synth.speak(utterThis)
           }
@@ -811,10 +811,12 @@ function addFunct(btnList) {
                       }
                       let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
                       node.innerHTML = innerHTML
+                      anchorChanger()
                     }
                   }
                   utterThis.onend = function () {
                     node.innerHTML = saveNode1
+                    anchorChanger()
                   }
                   synth.speak(utterThis)
                 }

@@ -684,10 +684,12 @@ async function openButton(text, btnX, i) {
                 }
                 let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
                 node.innerHTML = innerHTML
+                anchorChanger()
               }
             }
             utterThis.onend = function () {
               node.innerHTML = saveNode1
+              anchorChanger()
             }
             synth.speak(utterThis)
           }
@@ -790,10 +792,12 @@ function addFunct(btnList) {
                       }
                       let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
                       node.innerHTML = innerHTML
+                      anchorChanger()
                     }
                   }
                   utterThis.onend = function () {
                     node.innerHTML = saveNode1
+                    anchorChanger()
                   }
                   synth.speak(utterThis)
                 }

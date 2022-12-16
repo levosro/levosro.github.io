@@ -258,7 +258,7 @@ function generateTOC() {
   }
   for (let p = 0; p < citate.length; p++) {
     let citat = citate[p];
-    res = res + `<menuitem> <span><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a><hr style="width:30%;"/><div id="cit${citat.id}"></div></span> </menuitem>`;
+    res = res + `<menuitem> <span><a href="./citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a><hr style="width:30%;"/><div id="cit${citat.id}"></div></span> </menuitem>`;
   }
   res = res + '</div>'
 
