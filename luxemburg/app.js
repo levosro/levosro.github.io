@@ -464,7 +464,7 @@ function openButton(text, btnX, i) {
       readText.addEventListener('click', function () {
         synth.cancel()
         let textToRead = Array.prototype.slice.call(document.getElementById(`content${text.idChr}`).children)
-        for (let i = 0; i < text.content.length; i++) {
+        for (let i = 1; i < text.content.length; i++) {
           if (text.content[i] != '<p>&nbsp;</p>') {
             let utterThis = new SpeechSynthesisUtterance();
             utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
@@ -483,10 +483,12 @@ function openButton(text, btnX, i) {
                 }
                 let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
                 node.innerHTML = innerHTML
+                anchorChanger()
               }
             }
             utterThis.onend = function () {
               node.innerHTML = saveNode1
+              anchorChanger()
             }
             synth.speak(utterThis)
           }
@@ -571,7 +573,7 @@ function addFunct(btnList) {
             readText.addEventListener('click', function () {
               synth.cancel()
               let textToRead = Array.prototype.slice.call(document.getElementById(`content${text.idChr}`).children)
-              for (let i = 0; i < text.content.length; i++) {
+              for (let i = 1; i < text.content.length; i++) {
                 if (text.content[i] != '<p>&nbsp;</p>') {
                   let utterThis = new SpeechSynthesisUtterance();
                   utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
@@ -590,10 +592,12 @@ function addFunct(btnList) {
                       }
                       let innerHTML = saveNode.substring(0, event.charIndex) + '<span class="highlight">' + saveNode.substring(event.charIndex, indexSp) + '</span>' + saveNode.substring(indexSp)
                       node.innerHTML = innerHTML
+                      anchorChanger()
                     }
                   }
                   utterThis.onend = function () {
                     node.innerHTML = saveNode1
+                    anchorChanger()
                   }
                   synth.speak(utterThis)
                 }
