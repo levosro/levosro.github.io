@@ -21,4 +21,6 @@ export const notes = [
 {'idNote': '20','content': ['<p class="noind">[20]. Vezi articolul lui F. Adler în numărul din ianuarie al revistei „Kampf“.</p>'],},
 {'idNote': '21','content': ['<p class="noind">[21]. Vezi articolul lui Kautsky apărut în „Neue Zeit“ din 2 octombrie 1914.</p>'],},
 {'idNote': '22','content': ['<p class="noind">[22]. Vezi articolul lui Kautsky apărut în „Neue Zeit“ din 27 octombrie, 1914.</p>'],},
+{'idNote': '23','content': ['<p class="noind">[23]. Este vorba de scufundarea unui submarin german de către crucişătorul englez „Baralong“ (19 august 1915) şi de împuşcarea echipajului naufragiat.</p>'],},
+{'idNote': '24','content': ['<p class="noind">[24]. La 24 martie 1916, 18 deputaţi, în frunte cu Ledebour, au refuzat să voteze în Reichstag bugetul şi, ca urmare, au fost excluşi din fracţiunea parlamentară social-democrată. Cei excluşi au întemeiat o fracţiune proprie, aşa-numita „comunitate de lucru social-democrată“.</p>'],},
 ];
