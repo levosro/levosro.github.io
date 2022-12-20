@@ -518,10 +518,12 @@ function openButton(text, btnX, i) {
     else {
       readText.addEventListener('click', function () {
         synth.cancel()
-        for (let i = 0; i < text.content.length; i++) {
+        let textContent = new Array(text.title)
+        textContent = textContent.concat(text.content)
+        for (let i = 0; i < textContent.length; i++) {
           let utterThis = new SpeechSynthesisUtterance();
           utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
-          utterThis.text = text.content[i].replace(/<[^>]*>/g, '');
+          utterThis.text = textContent[i].replace(/<[^>]*>/g, '');
           synth.speak(utterThis)
         }
       })
@@ -627,10 +629,12 @@ function addFunct(btnList) {
           else {
             readText.addEventListener('click', function () {
               synth.cancel()
-              for (let i = 0; i < text.content.length; i++) {
+              let textContent = new Array(text.title)
+              textContent = textContent.concat(text.content)
+              for (let i = 0; i < textContent.length; i++) {
                 let utterThis = new SpeechSynthesisUtterance();
                 utterThis.voice = synth.getVoices().filter(item => item.lang.includes('ro'))[0]
-                utterThis.text = text.content[i].replace(/<[^>]*>/g, '');
+                utterThis.text = textContent[i].replace(/<[^>]*>/g, '');
                 synth.speak(utterThis)
               }
             })

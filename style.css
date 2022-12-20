@@ -83,7 +83,7 @@ header h1 {
     text-transform: uppercase;
 }
 
-.content {
+.content, .antologii {
     padding-top: 0em;
     display: flex;
     align-items: center;

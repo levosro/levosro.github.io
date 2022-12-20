@@ -22,5 +22,11 @@ export const books = [
         'author': 'Rosa Luxemburg',
         'cover': './assets/luxemburg.png',
         'link': './luxemburg/index.html'
+    },
+    {
+        'title': 'Societatea spectacolului',
+        'author': 'Guy Debord',
+        'cover': './assets/debord.png',
+        'link': './debord/index.html'
     }
 ]
