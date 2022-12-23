@@ -1,10 +1,10 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-irregular-whitespace */
-import { chapters } from './msj/chapters.mjs';
-import { texts } from './msj/texts.mjs';
-import { parts } from './msj/parts.mjs';
-import { notes } from './msj/notes.mjs';
-import { citate } from './citate/citate.mjs';
+import chapters from './msj/chapters.mjs';
+import texts from './msj/texts.mjs';
+import parts from './msj/parts.mjs';
+import notes from './msj/notes.mjs';
+import citate from './citate/citate.mjs';
 
 class ExpandedButton {
   constructor(title, idChr, index) {

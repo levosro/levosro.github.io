@@ -1,8 +1,8 @@
-import { citate } from './citate.mjs';
-import { chapters } from '../msj/chapters.mjs';
-import { texts } from '../msj/texts.mjs';
-import { parts } from '../msj/parts.mjs';
-import { notes } from '../msj/notes.mjs'
+import citate from './citate.mjs';
+import chapters from '../msj/chapters.mjs';
+import texts from '../msj/texts.mjs';
+import parts from '../msj/parts.mjs';
+import notes from '../msj/notes.mjs'
 import html2canvas from './html2canvas.esm.js';
 const section = document.querySelector('.container');
 

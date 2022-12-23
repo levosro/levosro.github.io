@@ -1,4 +1,4 @@
-export const chapters = [
+export default [
 {'title': 'I. Separaţia dusă până la capăt',
 'idCh': '1.01',
 },

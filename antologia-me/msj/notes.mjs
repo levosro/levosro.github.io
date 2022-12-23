@@ -1,4 +1,4 @@
-export const notes = [
+export default [
 {'idNote': '1','content': `<p class="noind">[1]. F. Engels, „Ludwig Feuerbach şi sfârşitul filozofiei clasice germane“, K. Marx şi F. Engels, <i>Opere</i>, vol. 21, Editura politică, 1965, p. 292.</p>`,},
 {'idNote': '2','content': `<p class="noind">[2]. F. Engels, „Karl Marx: «Contribuţii la critica economiei politice»“, K. Marx şi F. Engels, <i>Opere</i>, vol. 13, Editura politică, 1962, p. 513.</p>`,},
 {'idNote': '3','content': `<p class="noind">[3]. V. I. Lenin, „Ce-i de făcut?“, V. I. Lenin, <i>Opere complete</i>, vol. 6, Editura politică, 1961, p. 23.</p>`,},

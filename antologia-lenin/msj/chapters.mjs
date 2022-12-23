@@ -1,4 +1,4 @@
-export const chapters = [
+export default [
 {'author': 'levos',
 'title': 'Introducerea lui Levos',
 'subtitle': '',

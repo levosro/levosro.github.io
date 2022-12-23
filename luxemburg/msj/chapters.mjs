@@ -1,4 +1,4 @@
-export const chapters = [
+export default [
 {'title': 'Greva din 1893 a minerilor englezi',
 'subtitle': '',
 'info': '„Sprawa Rabotnicza“,<br/>Paris, noiembrie-decembrie 1893.<br/>(Articol scris în limba poloneză)',

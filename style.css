@@ -16,6 +16,40 @@ body {
     margin: 0;
 }
 
+#search {
+    font-family: "Vollkorn", serif;
+}
+
+#textInput2 {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 10px 10px 10px;
+    border-color: #000;
+    font-family: "Vollkorn", serif;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#search A:link {
+    COLOR: #c41616;
+    TEXT-DECORATION: none;
+}
+
+#search A:visited {
+    COLOR: #c41616;
+    TEXT-DECORATION: none;
+}
+
+#search A:hover {
+    COLOR: #c41616;
+    text-decoration: underline;
+}
+
+#search A:active {
+    COLOR: #c41616;
+    text-decoration: underline;
+}
+
 header {
     /* min-width: 100vw; */
     background-color: #c41616;
@@ -51,7 +85,10 @@ header .left-content {
     }
 }
 
-header #youtube, #instagram, #discord, #facebook{
+header #youtube,
+#instagram,
+#discord,
+#facebook {
     cursor: pointer;
 }
 
@@ -83,13 +120,33 @@ header h1 {
     text-transform: uppercase;
 }
 
-.content, .antologii {
+.content,
+.antologii {
     padding-top: 0em;
     display: flex;
     align-items: center;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
+}
+
+.expand-btn {
+    margin-top: 0.5rem;
+    background: var(--clr-primary-10);
+    color: #c41616;
+    padding: 0.25rem 0.5rem;
+    /* text-transform: capitalize; */
+    border-radius: var(--radius);
+    transition: var(--transition);
+    font-family: var(--ff-primary);
+    border-color: #c41616;
+    cursor: pointer;
+    user-select: none;
+}
+
+.expand-btn:hover {
+    background: #c41616;
+    color: white;
 }
 
 .yt-content {

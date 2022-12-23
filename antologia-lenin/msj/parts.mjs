@@ -1,4 +1,4 @@
-export const parts = [
+export default [
 {'idPt': '1.0',
 'title': 'PARTEA I. Partidul revoluţionar şi tacticile sale',
 },

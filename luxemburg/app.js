@@ -1,8 +1,8 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-irregular-whitespace */
-import { chapters } from './msj/chapters.mjs';
-import { texts } from './msj/texts.mjs';
-import { notes } from './msj/notes.mjs';
+import chapters from './msj/chapters.mjs';
+import texts from './msj/texts.mjs';
+import notes from './msj/notes.mjs';
 // import { citate } from './citate/citate.mjs';
 
 class ExpandedButton {
@@ -202,7 +202,7 @@ window.addEventListener("DOMContentLoaded", function () {
         // res = res + `<div style="text-align: center;"><a href="./index.html?id=0.02">${chapters[1].title}</a></div>`;
 
         // res = res + '<ul>'
-        res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=C1" id="a1">Cuvântari și articole alese</a></b></div>`;
+        res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=C1.01" id="a1">Cuvântari și articole alese</a></b></div>`;
         res = res + `<ul class="partOl">`
         for (let j = 0; j < texts.length; j++) {
           let text = texts[j];

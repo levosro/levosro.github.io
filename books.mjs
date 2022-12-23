@@ -1,4 +1,4 @@
-export const books = [
+export default [
     {
         'title': 'Antologia Marx-Engels',
         'author': 'Karl Marx, Friedrich Engels',

@@ -1,4 +1,4 @@
-export const parts = [
+export default [
 {'title': 'Prefeţe la cele trei ediţii',
 'idPt': '0.1',
 },

@@ -1,4 +1,4 @@
-export const notes = [
+export default [
 {'idNote': '1','content': '<p class="noind">[1]. Politica urmată de N. P. Ignatiev, ministrul afacerilor interne în 1881—82, care era menită, după cum spunea Lenin, „să prostească“ pe liberali. O parte a politicii a fost convocarea conferinţelor „persoane competente“, care includeau mareşali ai nobilimii, preşedinţi ai zemstvelor şi oameni similari pentru a discuta probleme legate de reducerea plăţilor de răscumpărare a terenurilor, organizarea adecvată a migraţiei şi reforma administraţiei locale. Cu toate acestea, în 1882, Ignatiev a demisionat şi a urmat o perioadă de „reacţiune dezmăţată, neînchipuit de crâncenă şi de bestială“.</p>',},
 {'idNote': '2','content': '<p class="noind">[2]. Comp. „Das Kapital“, I, S. 527. <i>[Lenin]</i></p>',},
 {'idNote': '3','content': '<p class="noind">[3]. „Privire asupra agriculturii din gubernia Nijni-Novgorod“ pe 1892. <i>[Lenin]</i></p>',},
