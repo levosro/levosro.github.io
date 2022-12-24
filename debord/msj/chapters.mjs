@@ -17,4 +17,13 @@ export default [
 {'title': 'VI. Timpul spectacular',
 'idCh': '1.06',
 },
+{'title': 'VII. Amenajarea teritoriului',
+'idCh': '1.07',
+},
+{'title': 'VIII. Negarea şi consumul în cultură',
+'idCh': '1.08',
+},
+{'title': 'IX. Ideologia materializată',
+'idCh': '1.09',
+},
 ];

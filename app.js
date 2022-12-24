@@ -59,6 +59,14 @@ window.addEventListener("DOMContentLoaded", function () {
   const content = document.querySelector('.content');
   content.innerHTML = res;
 
+  for (let i = 0; i < books.length; i++) {
+    const bookCover = document.getElementById(`cover${i}`)
+    bookCover.addEventListener('click', function () {
+      // window.location.href = books[i].link;
+      window.open(books[i].link, '_blank').focus();
+    })
+  }
+
 
   res = ''
   res = res + '<div id="searchSITE">';
