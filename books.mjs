@@ -18,7 +18,7 @@ export default [
         'link': './antiduhring/index.html'
     },
     {
-        'title': 'Cuvântari și articole alese',
+        'title': 'Cuvântări și articole alese',
         'author': 'Rosa Luxemburg',
         'cover': './assets/luxemburg.png',
         'link': './luxemburg/index.html'

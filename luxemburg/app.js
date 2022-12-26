@@ -202,7 +202,7 @@ window.addEventListener("DOMContentLoaded", function () {
         // res = res + `<div style="text-align: center;"><a href="./index.html?id=0.02">${chapters[1].title}</a></div>`;
 
         // res = res + '<ul>'
-        res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=C1.01" id="a1">Cuvântari și articole alese</a></b></div>`;
+        res = res + `<div style="text-align: center;" class="dt"><b><a href="./index.html?id=C1.01" id="a1">Cuvântări și articole alese</a></b></div>`;
         res = res + `<ul class="partOl">`
         for (let j = 0; j < texts.length; j++) {
           let text = texts[j];
@@ -233,7 +233,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
         document.getElementById('download').addEventListener('click', function () {
-          downloadFile('./Cuvântari și articole alese.epub', 'Cuvântari și articole alese.epub')
+          downloadFile('./Cuvântari și articole alese.epub', 'Cuvântări și articole alese.epub')
         })
 
         home.addEventListener('click', function () {
@@ -409,7 +409,7 @@ function generateTOC() {
   // res = res + '<nav class="left-navigation"> <main>'
   // res = res + '<menu><main><nav>'
   res = res + '<div id="toc">'
-  res = res + '<menuitem><menuitem> <span class="heading"><a href="./index.html" id="A0.0"><i class="fa fa-book"></i> Cuvântari și articole alese</a></span> </menuitem>';
+  res = res + '<menuitem><menuitem> <span class="heading"><a href="./index.html" id="A0.0"><i class="fa fa-book"></i> Cuvântări și articole alese</a></span> </menuitem>';
   for (let j = 0; j < texts.length; j++) {
     let text = texts[j];
     res = res + `<menuitem> <span><a href="./index.html?id=T${text.idChr}#${text.idChr}" id="aCh${text.idChr}">${text.title}</a></span> </menuitem>`;
