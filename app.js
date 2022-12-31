@@ -16,6 +16,10 @@ import luxemburgNotes from "./luxemburg/msj/notes.mjs"
 
 import debordTexts from "./debord/msj/texts.mjs"
 
+import sfFamilieTexts from './sf-familie/msj/texts.mjs'
+
+import dietzgenTexts from './dietzgen/msj/texts.mjs'
+
 let btnList = []
 
 let marxTexts = meTexts.filter(item => item.image.includes('marx') && !item.image.includes('engels'))
@@ -86,6 +90,8 @@ window.addEventListener("DOMContentLoaded", function () {
     btnList.push(new ExpandedButton('Friedrich Engels'))
     res = res + new ExpandedButton('Marx & Engels');
     btnList.push(new ExpandedButton('Marx & Engels'))
+    res = res + new ExpandedButton('Josef Dietzgen');
+    btnList.push(new ExpandedButton('Josef Dietzgen'))
     res = res + new ExpandedButton('V. I. Lenin');
     btnList.push(new ExpandedButton('V. I. Lenin'))
     res = res + new ExpandedButton('Rosa Luxemburg');
@@ -225,6 +231,11 @@ window.addEventListener("DOMContentLoaded", function () {
             res = res + `<tr><td><span style="text-align: center;"><div><a href="./antologia-me/citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
           }
 
+          for (let p = 0; p < sfFamilieTexts.length; p++) {
+            let text = sfFamilieTexts[p];
+            res = res + `<tr><td><span style="text-align: center;"><div><a href="./sf-familie/index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">Karl Marx & Friedrich Engels, „Sfânta familie, sau critica criticii critice“: ${text.title}</a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`;
+          }
+
           res = res + '</tbody></table></div>'
           content.innerHTML = res;
           if (document.getElementById('textInput2').value.toUpperCase() == '') {
@@ -235,9 +246,47 @@ window.addEventListener("DOMContentLoaded", function () {
             });
           }
           else {
-            Search2('tr', 'contentMarx & Engels', 'textInput2', 0, 'books', maEnTexts, meCitate.filter(item => item.img.includes('marx') && item.img.includes('engels')), meNotes)
+            Search2('tr', 'contentMarx & Engels', 'textInput2', 0, 'books', [...maEnTexts, ...sfFamilieTexts], meCitate.filter(item => item.img.includes('marx') && item.img.includes('engels')), meNotes)
           }
 
+        }
+        else {
+          content.innerHTML = ''
+        }
+      }
+      )
+
+      document.getElementById("Josef Dietzgen").addEventListener('click', function () {
+        let button = btnList.filter(item => item.title == "Guy Debord")[0];
+        button.expanded = !button.expanded
+        if (button.expanded) { document.getElementById("Josef Dietzgen").innerHTML = 'Josef Dietzgen ▲' }
+        else {
+          document.getElementById("Josef Dietzgen").innerHTML = 'Josef Dietzgen ▼'
+        }
+        // btnList[index] = button;
+        let content = document.getElementById('contentJosef Dietzgen')
+        if (button.expanded) {
+
+          res = ''
+          res = res + '<table style="width: 50%; margin-left: auto; margin-right: auto;"> <tbody>';
+
+          for (let p = 0; p < dietzgenTexts.length; p++) {
+            let text = dietzgenTexts[p];
+            res = res + `<tr><td><span style="text-align: center;"><div><a href="./debord/index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">Josef Dietzgen, „Esența muncii cerebrale a omului“: ${text.title}</a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`;
+          }
+
+          res = res + '</tbody></table></div>'
+          content.innerHTML = res;
+          if (document.getElementById('textInput2').value.toUpperCase() == '') {
+            let textList = [].slice.call(search.getElementsByTagName('tr'));
+            textList.shift();
+            textList.forEach(element => {
+              element.style.display = "none";
+            });
+          }
+          else {
+            Search2('tr', 'contentJosef Dietzgen', 'textInput2', 0, 'books', dietzgenTexts, [], [])
+          }
         }
         else {
           content.innerHTML = ''

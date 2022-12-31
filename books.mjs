@@ -12,10 +12,22 @@ export default [
         'link': './antologia-lenin/index.html'
     },
     {
+        'title': 'Sfânta familie, sau critica criticii critice',
+        'author': 'Karl Marx, Friedrich Engels',
+        'cover': './assets/sf-familie.png',
+        'link': './sf-familie/index.html'
+    },
+    {
         'title': 'Anti-Dühring',
         'author': 'Friedrich Engels',
         'cover': './assets/antiduhring.png',
         'link': './antiduhring/index.html'
+    },
+    {
+        'title': 'Esența muncii cerebrale a omului',
+        'author': 'Josef Dietzgen',
+        'cover': './assets/dietzgen.png',
+        'link': './dietzgen/index.html'
     },
     {
         'title': 'Cuvântări și articole alese',

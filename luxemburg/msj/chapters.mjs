@@ -114,7 +114,7 @@ export default [
 'info': '„Die Rote Fahne“ din 18 noiembrie 1918',
 'idCh': '1.23',
 },
-{'title': 'Începutul',
+{'title': 'Vechiul joc',
 'subtitle': '',
 'info': '„Die Rote Fahne“ din 18 noiembrie 1918',
 'idCh': '1.24',
