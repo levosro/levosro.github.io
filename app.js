@@ -19,6 +19,8 @@ import debordTexts from "./debord/msj/texts.mjs"
 import sfFamilieTexts from './sf-familie/msj/texts.mjs'
 
 import dietzgenTexts from './dietzgen/msj/texts.mjs'
+import dietzgenNotes from './dietzgen/msj/notes.mjs'
+
 
 let btnList = []
 
@@ -285,7 +287,7 @@ window.addEventListener("DOMContentLoaded", function () {
             });
           }
           else {
-            Search2('tr', 'contentJosef Dietzgen', 'textInput2', 0, 'books', dietzgenTexts, [], [])
+            Search2('tr', 'contentJosef Dietzgen', 'textInput2', 0, 'books', dietzgenTexts, [], dietzgenNotes)
           }
         }
         else {
@@ -462,6 +464,7 @@ function Search2(inputX, searchX, textInputX, startI, tocX, texts, citate, notes
         notesList.push(notes.filter(itemN => itemN.idNote == item)[0])
       })
       notesList.forEach(note =>
+
         content = content + ` ${note.content.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/<[^>]*>/g, '')}`
       )
     }

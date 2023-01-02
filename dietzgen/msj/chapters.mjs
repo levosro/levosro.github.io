@@ -14,4 +14,7 @@ export default [
 {'title': 'IV. Practica raţiunii în ştiinţa fizică',
 'idCh': '1.4',
 },
+{'title': 'V. „Raţiune practică“ sau morală',
+'idCh': '1.5',
+},
 ];
