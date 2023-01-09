@@ -17,6 +17,12 @@ export default [
         'cover': './assets/sf-familie.png',
         'link': './sf-familie/index.html'
     },
+    // {
+    //     'title': 'Mizeria filozofiei',
+    //     'author': 'Karl Marx',
+    //     'cover': './assets/mizeria-filozofiei.png',
+    //     'link': './mizeria-filozofiei/index.html'
+    // },
     {
         'title': 'Anti-Dühring',
         'author': 'Friedrich Engels',

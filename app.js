@@ -18,6 +18,8 @@ import debordTexts from "./debord/msj/texts.mjs"
 
 import sfFamilieTexts from './sf-familie/msj/texts.mjs'
 
+import mizFizTexts from './mizeria-filozofiei/msj/texts.mjs'
+
 import dietzgenTexts from './dietzgen/msj/texts.mjs'
 import dietzgenNotes from './dietzgen/msj/notes.mjs'
 
@@ -139,6 +141,11 @@ window.addEventListener("DOMContentLoaded", function () {
             res = res + `<tr><td><span style="text-align: center;"><div><a href="./antologia-me/citate.html?cit=${citat.id}" id="CIT${citat.id}">${citat.autor}, ${citat.titlu.replace(/(<[a|A][^>]*>|)/g, '')}</a></div><div id="cit${citat.id}"></div><hr style="width:30%;"/></span> </tr></td>`;
           }
 
+          for (let p = 0; p < mizFizTexts.length; p++) {
+            let text = mizFizTexts[p];
+            res = res + `<tr><td><span style="text-align: center;"><div><a href="./mizeria-filozofiei/index.html?id=T${text.idChr}#${text.idChr}" id="CHR${text.idChr}">Karl Marx, „Mizeria filozofiei“: ${text.title}</a></div><div id="chr${text.idChr}"></div><hr style="width:30%;"/></span></tr></td>`;
+          }
+
           res = res + '</tbody></table></div>'
           content.innerHTML = res;
           if (document.getElementById('textInput2').value.toUpperCase() == '') {
@@ -149,7 +156,7 @@ window.addEventListener("DOMContentLoaded", function () {
             });
           }
           else {
-            Search2('tr', 'contentKarl Marx', 'textInput2', 0, 'books', marxTexts, meCitate.filter(item => item.img.includes('marx') && !item.img.includes('engels')), meNotes)
+            Search2('tr', 'contentKarl Marx', 'textInput2', 0, 'books', [...marxTexts, ...mizFizTexts], meCitate.filter(item => item.img.includes('marx') && !item.img.includes('engels')), meNotes)
           }
 
         }
